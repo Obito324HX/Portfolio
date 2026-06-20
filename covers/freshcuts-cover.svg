@@ -1,0 +1,53 @@
+<svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="dots" width="28" height="28" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#1C2230"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#080A0C"/>
+  <rect width="1200" height="630" fill="url(#dots)" opacity="0.5"/>
+
+  <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#1C2230" stroke-width="1"/>
+
+  <circle cx="120" cy="100" r="3" fill="#D4A843"/>
+  <text x="138" y="106" font-family="Space Grotesk, sans-serif" font-size="15" font-weight="600" fill="#D4A843" letter-spacing="2">OPEN NOW · CAIRO ROAD, LUSAKA</text>
+
+  <text x="118" y="245" font-family="Space Grotesk, sans-serif" font-size="96" font-weight="700" fill="#FFFFFF" letter-spacing="-3">Look</text>
+  <text x="118" y="345" font-family="Space Grotesk, sans-serif" font-size="96" font-weight="700" fill="none" stroke="#D4A843" stroke-width="1.5" letter-spacing="-3">Sharp.</text>
+
+  <text x="120" y="410" font-family="Inter, sans-serif" font-size="22" fill="#7A8A9E">Lusaka's freshest cuts. Fades, shape-ups, beard trims.</text>
+  <text x="120" y="442" font-family="Inter, sans-serif" font-size="22" fill="#7A8A9E">Book your slot on WhatsApp in seconds.</text>
+
+  <rect x="120" y="490" width="260" height="64" rx="4" fill="#25D366"/>
+  <text x="250" y="530" font-family="Space Grotesk, sans-serif" font-size="20" font-weight="700" fill="#FFFFFF" text-anchor="middle">Book via WhatsApp</text>
+
+  <rect x="400" y="490" width="190" height="64" rx="4" fill="none" stroke="#28334A" stroke-width="1.5"/>
+  <text x="495" y="530" font-family="Space Grotesk, sans-serif" font-size="20" fill="#EAF0F8" text-anchor="middle">View Services</text>
+
+  <g transform="translate(780, 90)">
+    <rect x="0" y="0" width="340" height="450" rx="8" fill="#141820" stroke="#1C2230" stroke-width="1"/>
+    <circle cx="55" cy="115" r="38" fill="none" stroke="#D4A843" stroke-width="2"/>
+    <text x="55" y="123" font-family="Space Grotesk, sans-serif" font-size="22" font-weight="700" fill="#D4A843" text-anchor="middle">KB</text>
+    <text x="115" y="108" font-family="Space Grotesk, sans-serif" font-size="20" font-weight="700" fill="#FFFFFF">Kelvin Banda</text>
+    <text x="115" y="132" font-family="Inter, sans-serif" font-size="14" fill="#7A8A9E">Head Barber · 8 years</text>
+    <text x="115" y="156" font-family="Space Grotesk, sans-serif" font-size="14" fill="#D4A843" letter-spacing="2">★★★★★</text>
+
+    <line x1="30" y1="195" x2="310" y2="195" stroke="#1C2230" stroke-width="1"/>
+
+    <text x="30" y="235" font-family="Space Grotesk, sans-serif" font-size="13" fill="#D4A843" letter-spacing="2">SERVICES</text>
+    <text x="30" y="270" font-family="Space Grotesk, sans-serif" font-size="16" font-weight="600" fill="#EAF0F8">Fresh Cut</text>
+    <text x="310" y="270" font-family="Space Grotesk, sans-serif" font-size="18" font-weight="700" fill="#D4A843" text-anchor="end">K50</text>
+    <text x="30" y="305" font-family="Space Grotesk, sans-serif" font-size="16" font-weight="600" fill="#EAF0F8">Cut + Beard</text>
+    <text x="310" y="305" font-family="Space Grotesk, sans-serif" font-size="18" font-weight="700" fill="#D4A843" text-anchor="end">K80</text>
+    <text x="30" y="340" font-family="Space Grotesk, sans-serif" font-size="16" font-weight="600" fill="#EAF0F8">Full Package</text>
+    <text x="310" y="340" font-family="Space Grotesk, sans-serif" font-size="18" font-weight="700" fill="#D4A843" text-anchor="end">K130</text>
+
+    <line x1="30" y1="375" x2="310" y2="375" stroke="#1C2230" stroke-width="1"/>
+
+    <text x="30" y="410" font-family="Space Grotesk, sans-serif" font-size="28" font-weight="700" fill="#D4A843">4.9★</text>
+    <text x="30" y="430" font-family="Inter, sans-serif" font-size="12" fill="#7A8A9E">3,200+ happy clients</text>
+  </g>
+
+  <text x="120" y="600" font-family="Space Grotesk, sans-serif" font-size="15" font-weight="700" fill="#EAF0F8">Fresh<tspan fill="#D4A843">Cuts</tspan></text>
+  <text x="1080" y="600" font-family="Space Grotesk, sans-serif" font-size="13" fill="#4A5668" text-anchor="end">Demo built by Cletus Bwalya</text>
+</svg>
