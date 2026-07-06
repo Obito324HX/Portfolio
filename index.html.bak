@@ -1233,7 +1233,7 @@
         </div>
 
         <div style="display:flex;flex-direction:column;gap:1rem;">
-          <img src="covers/resonate-cover.png" alt="Resonate e-commerce storefront preview" style="width:100%;border-radius:8px;display:block;border:1px solid var(--border);"/>
+          <img src="covers/resonate-cover.svg" alt="Resonate e-commerce storefront preview" style="width:100%;border-radius:8px;display:block;border:1px solid var(--border);"/>
 
           <div class="proj-right" style="flex-direction:row;flex-wrap:wrap;gap:1px;background:var(--border);border:1px solid var(--border);">
             <div class="proj-stat" style="flex:1;border:none;border-radius:0;">
