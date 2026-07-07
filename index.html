@@ -1053,6 +1053,16 @@
             <span class="proj-feature">Customer order tracking by ID + email, no account needed</span>
             <span class="proj-feature">Deployed across three services — Vercel, Render, and Neon</span>
           </div>
+
+          <div style="background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:1.25rem 1.5rem;margin-bottom:1.5rem;">
+            <div style="font-family:var(--mono);font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);margin-bottom:0.75rem;">How I Approached It</div>
+            <div style="display:flex;flex-direction:column;gap:0.6rem;font-size:0.85rem;line-height:1.7;">
+              <div><strong style="color:var(--ink);">Problem:</strong> <span style="color:var(--ink-soft);">A styled storefront with a fake "order placed" message doesn't actually prove backend or payment competency — anyone can fake a success screen.</span></div>
+              <div><strong style="color:var(--ink);">Decision:</strong> <span style="color:var(--ink-soft);">Integrate real Stripe Checkout in test mode instead of a mock form, and build a JWT-protected admin panel so order status changes (Pending → Paid → Shipped) are verifiable, not just claimed.</span></div>
+              <div><strong style="color:var(--ink);">Result:</strong> <span style="color:var(--ink-soft);">A payment flow that behaves identically to a production store, with every step from checkout to admin fulfillment actually working end to end.</span></div>
+            </div>
+          </div>
+
           <div class="proj-tech">
             <span class="proj-tech-tag">Next.js</span>
             <span class="proj-tech-tag">Express</span>
@@ -1082,23 +1092,25 @@
         </div>
       </div>
 
-            <!-- Zed-Forge Featured -->
+            <!-- Booking Engine Featured -->
       <div class="project-card featured">
         <div>
-          <div class="proj-tag">Featured Project · Booking & Scheduling</div>
-          <h3 class="proj-title">Zed-Forge</h3>
+          <div class="proj-tag">Featured Project · Multi-Tenant Booking Platform</div>
+          <h3 class="proj-title">Booking Engine</h3>
           <p class="proj-desc">
-            A booking and scheduling system built for service businesses — salons, barbershops,
-            consultants — that are stuck taking bookings over the phone or through WhatsApp back-and-forth.
-            Clients pick a service, a day, and a time slot; the business gets a clean queue with
-            no double-bookings and no phone tag.
+            A booking and scheduling platform built to host multiple service businesses, not just
+            one — salons, barbershops, consultants — anyone stuck taking bookings over the phone or
+            through WhatsApp back-and-forth. Each business gets its own branded booking page; clients
+            pick a service, day, and time slot, and the business gets a clean queue with no
+            double-bookings. Zed-Forge is the first business live on the platform, showing the full
+            flow end-to-end.
           </p>
           <div class="proj-features">
+            <span class="proj-feature">Multi-tenant architecture — one platform, independent booking pages per business</span>
             <span class="proj-feature">Service selection with live pricing per option</span>
             <span class="proj-feature">Day and time-slot picker — clients book their own place in line</span>
-            <span class="proj-feature">Separate business login to manage bookings</span>
-            <span class="proj-feature">Built to handle multiple service tiers, from quick calls to full project kickoffs</span>
-            <span class="proj-feature">Deployed and live — not just a local demo</span>
+            <span class="proj-feature">Separate business login to manage bookings per tenant</span>
+            <span class="proj-feature">Zed-Forge live as the first demo tenant on the platform</span>
           </div>
           <div class="proj-tech">
             <span class="proj-tech-tag">Python</span>
@@ -1106,12 +1118,12 @@
             <span class="proj-tech-tag">CSS</span>
             <span class="proj-tech-tag">Vercel</span>
           </div>
-          <a href="https://booking-system-eight-steel.vercel.app/book/zed-forge" target="_blank" class="proj-link">View Live Demo →</a>
+          <a href="https://booking-system-eight-steel.vercel.app/book/zed-forge" target="_blank" class="proj-link">View Live Demo (Zed-Forge example) →</a>
           <a href="https://github.com/Obito324HX/booking-system" target="_blank" class="proj-link" style="margin-left:1.25rem;">GitHub →</a>
         </div>
 
         <div style="display:flex;flex-direction:column;gap:1rem;">
-          <img src="covers/zedforge-cover.png" alt="Zed-Forge booking system preview" style="width:100%;border-radius:12px;display:block;border:1px solid var(--border);"/>
+          <img src="covers/zedforge-cover.png" alt="Booking Engine platform preview, showing the Zed-Forge example tenant" style="width:100%;border-radius:12px;display:block;border:1px solid var(--border);"/>
 
           <div class="proj-right" style="flex-direction:row;flex-wrap:wrap;gap:0.75rem;">
             <div class="proj-stat" style="flex:1;">
@@ -1119,8 +1131,8 @@
               <div class="proj-stat-label">Status</div>
             </div>
             <div class="proj-stat" style="flex:1;">
-              <div class="proj-stat-val">5</div>
-              <div class="proj-stat-label">Service Tiers</div>
+              <div class="proj-stat-val">Multi</div>
+              <div class="proj-stat-label">Tenant Architecture</div>
             </div>
           </div>
         </div>
