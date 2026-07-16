@@ -5,436 +5,336 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Lantern & Wok — Rooftop Pan-Asian Kitchen, Lusaka</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Work+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400;1,9..144,500&family=Jost:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#12181A;
-    --teal:#1E3A3D;
-    --ember:#CC7E3F;
-    --ember-soft:#E3A46A;
-    --chili:#A6402C;
-    --cream:#F3ECDD;
-    --muted:#93A7A0;
-    --line:rgba(243,236,221,0.12);
+    --obsidian:#0B0F0E;
+    --panel:#121815;
+    --brass:#B08D57;
+    --brass-light:#D9BD8C;
+    --burgundy:#5C2028;
+    --cream:#F4EEE2;
+    --muted:#8C8478;
+    --hair:rgba(244,238,226,0.11);
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;overflow-x:hidden;width:100%;}
   body{
-    background:var(--ink);
-    color:var(--cream);
-    font-family:'Work Sans',sans-serif;
-    font-weight:300;
-    line-height:1.6;
-    overflow-x:hidden;
-    width:100%;
-    max-width:100vw;
-    position:relative;
+    background:var(--obsidian);color:var(--cream);
+    font-family:'Jost',sans-serif;font-weight:300;line-height:1.7;
+    overflow-x:hidden;width:100%;max-width:100vw;position:relative;
   }
   body::before{
-    content:'';
-    position:fixed;inset:0;z-index:0;pointer-events:none;
-    opacity:0.035;
+    content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0.03;
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
   body > *{position:relative;z-index:1;}
-  h1,h2,h3,.display{font-family:'Fraunces',serif;font-weight:500;}
-  .mono{font-family:'JetBrains Mono',monospace;}
+  h1,h2,h3,.display{font-family:'Fraunces',serif;font-weight:400;}
   a{color:inherit;text-decoration:none;}
   img{display:block;width:100%;height:100%;object-fit:cover;}
-  .wrap{max-width:1180px;margin:0 auto;padding:0 32px;}
-  .eyebrow{
-    font-family:'JetBrains Mono',monospace;
-    font-size:0.72rem;
-    letter-spacing:0.22em;
-    text-transform:uppercase;
-    color:var(--ember-soft);
-    display:flex;align-items:center;gap:10px;
-    margin-bottom:18px;
-  }
-  .eyebrow::before{content:'';width:22px;height:1px;background:var(--ember);}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 40px;}
+  .caps{font-size:0.72rem;letter-spacing:0.24em;text-transform:uppercase;color:var(--brass-light);}
+  .eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:22px;}
+  .eyebrow::before{content:'';width:34px;height:1px;background:var(--brass);}
+
+  .framed{position:relative;}
+  .framed::before,.framed::after{content:'';position:absolute;width:24px;height:24px;pointer-events:none;z-index:3;}
+  .framed::before{top:-1px;left:-1px;border-top:1px solid var(--brass);border-left:1px solid var(--brass);}
+  .framed::after{bottom:-1px;right:-1px;border-bottom:1px solid var(--brass);border-right:1px solid var(--brass);}
 
   /* NAV */
-  nav{
-    position:fixed;top:0;left:0;right:0;z-index:100;
-    padding:22px 0;
-    transition:background .4s ease, padding .4s ease, border-color .4s ease;
-    border-bottom:1px solid transparent;
-  }
-  nav.scrolled{
-    background:rgba(18,24,26,0.92);
-    backdrop-filter:blur(10px);
-    padding:14px 0;
-    border-color:var(--line);
-  }
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:28px 0;transition:background .4s,padding .4s,border-color .4s;border-bottom:1px solid transparent;}
+  nav.scrolled{background:rgba(11,15,14,0.94);backdrop-filter:blur(10px);padding:18px 0;border-color:var(--hair);}
   nav .wrap{display:flex;align-items:center;justify-content:space-between;}
-  .logo{font-family:'Fraunces',serif;font-size:1.3rem;font-weight:600;letter-spacing:0.01em;}
-  .logo span{color:var(--ember-soft);}
-  .navlinks{display:flex;gap:38px;font-size:0.88rem;letter-spacing:0.02em;}
-  .navlinks a{opacity:0.8;transition:opacity .25s;position:relative;}
-  .navlinks a:hover{opacity:1;}
-  .nav-cta{
-    border:1px solid var(--ember);
-    padding:9px 20px;
-    font-size:0.82rem;
-    border-radius:2px;
-    transition:background .25s, color .25s;
-    letter-spacing:0.03em;
-  }
-  .nav-cta:hover{background:var(--ember);color:var(--ink);}
-  .navtoggle{display:none;}
-  .floating-cta{
-    display:none;position:fixed;bottom:22px;right:22px;z-index:99;
-    background:var(--ember);color:var(--ink);padding:15px 24px;border-radius:30px;
-    font-size:0.86rem;font-weight:500;box-shadow:0 10px 30px rgba(0,0,0,0.4);
-    align-items:center;gap:8px;
-    opacity:0;transform:translateY(20px);transition:opacity .3s, transform .3s;
-  }
-  .floating-cta.show{opacity:1;transform:translateY(0);}
+  .monogram{width:42px;height:42px;border:1px solid var(--brass);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-style:italic;font-size:1.05rem;color:var(--brass-light);}
+  .navlinks{display:flex;gap:44px;font-size:0.86rem;letter-spacing:0.04em;}
+  .navlinks a{opacity:0.75;transition:opacity .25s;}
+  .navlinks a:hover{opacity:1;color:var(--brass-light);}
+  .nav-cta{border:1px solid var(--brass);padding:11px 24px;font-size:0.8rem;letter-spacing:0.08em;text-transform:uppercase;transition:background .25s,color .25s;}
+  .nav-cta:hover{background:var(--brass);color:var(--obsidian);}
 
   /* HERO */
-  .hero{
-    position:relative;min-height:100vh;display:flex;align-items:flex-end;
-    padding-bottom:90px;
-    overflow:hidden;
-  }
+  .hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;}
   .hero-bg{position:absolute;inset:0;z-index:0;}
-  .hero-bg img{filter:saturate(0.85) brightness(0.55);}
-  .hero-bg::after{
-    content:'';position:absolute;inset:0;
-    background:linear-gradient(180deg, rgba(18,24,26,0.35) 0%, rgba(18,24,26,0.55) 55%, var(--ink) 100%);
-  }
-  .hero-glow{
-    position:absolute;left:50%;top:38%;width:900px;height:900px;
-    transform:translate(-50%,-50%);
-    background:radial-gradient(circle, rgba(204,126,63,0.16) 0%, rgba(204,126,63,0) 65%);
-    z-index:1;
-    animation:pulse 7s ease-in-out infinite;
-    pointer-events:none;
-  }
-  @keyframes pulse{
-    0%,100%{opacity:0.7;transform:translate(-50%,-50%) scale(1);}
-    50%{opacity:1;transform:translate(-50%,-50%) scale(1.08);}
-  }
-  .hero-content{position:relative;z-index:2;}
-  .hero h1{
-    font-size:clamp(3rem,7vw,5.6rem);
-    line-height:0.98;
-    max-width:820px;
-    font-weight:500;
-  }
-  .hero h1 em{font-style:italic;color:var(--ember-soft);font-weight:300;}
-  .hero-sub{
-    max-width:480px;margin-top:26px;font-size:1.05rem;color:var(--muted);font-weight:300;
-  }
-  .hero-actions{display:flex;gap:16px;margin-top:40px;flex-wrap:wrap;}
-  .btn{
-    display:inline-flex;align-items:center;gap:10px;
-    padding:15px 30px;font-size:0.88rem;letter-spacing:0.03em;
-    border-radius:2px;transition:all .25s ease;
-    font-family:'Work Sans',sans-serif;
-  }
-  .btn-primary{background:var(--ember);color:var(--ink);font-weight:500;}
-  .btn-primary:hover{background:var(--ember-soft);}
-  .btn-ghost{border:1px solid var(--line);color:var(--cream);}
-  .btn-ghost:hover{border-color:var(--ember-soft);}
+  .hero-bg img{filter:saturate(0.7) brightness(0.42) contrast(1.05);transform:scale(1.06);animation:heroin 12s ease-out forwards;}
+  @keyframes heroin{to{transform:scale(1);}}
+  .hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg, rgba(11,15,14,0.25) 0%, rgba(11,15,14,0.55) 60%, var(--obsidian) 100%);}
+  .hero-content{position:relative;z-index:2;text-align:center;width:100%;}
+  .hero .caps{display:block;margin-bottom:26px;}
+  .hero h1{font-size:clamp(2.6rem,6.4vw,4.6rem);line-height:1.08;font-weight:300;max-width:820px;margin:0 auto;}
+  .hero h1 em{font-style:italic;color:var(--brass-light);}
+  .hero-rule{width:1px;height:52px;background:var(--brass);margin:34px auto;}
+  .hero-sub{max-width:440px;margin:0 auto;font-size:1rem;color:var(--muted);}
+  .hero-actions{display:flex;gap:24px;margin-top:44px;justify-content:center;flex-wrap:wrap;}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:16px 34px;font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;transition:all .3s;}
+  .btn-primary{background:var(--brass);color:var(--obsidian);}
+  .btn-primary:hover{background:var(--brass-light);}
+  .btn-line{border-bottom:1px solid var(--brass);padding:16px 4px;}
+  .btn-line:hover{color:var(--brass-light);border-color:var(--brass-light);}
+  .scroll-cue{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);z-index:2;width:1px;height:50px;background:linear-gradient(var(--brass),transparent);animation:cue 2.4s ease-in-out infinite;}
+  @keyframes cue{0%,100%{opacity:0.2;}50%{opacity:1;}}
 
-  /* STATS */
-  .stats{
-    border-top:1px solid var(--line);border-bottom:1px solid var(--line);
-    background:rgba(30,58,61,0.28);
-    position:relative;overflow:hidden;
-  }
-  .stats::before{
-    content:'';position:absolute;top:-50%;left:10%;width:400px;height:400px;
-    background:radial-gradient(circle, rgba(204,126,63,0.1) 0%, transparent 70%);
-    pointer-events:none;
-  }
-  .stats .wrap{
-    display:grid;grid-template-columns:repeat(4,1fr);
-    padding:52px 32px;
-    position:relative;
-  }
-  .stat{text-align:center;border-right:1px solid var(--line);padding:0 12px;}
-  .stat:last-child{border-right:none;}
-  .stat svg{width:26px;height:26px;color:var(--ember);margin-bottom:12px;}
-  .stat .num{font-family:'Fraunces',serif;font-size:2.4rem;color:var(--ember-soft);}
-  .stat .label{font-size:0.78rem;color:var(--muted);letter-spacing:0.05em;margin-top:6px;text-transform:uppercase;}
+  /* MARQUEE */
+  .marquee{border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);background:var(--panel);overflow:hidden;padding:22px 0;}
+  .marquee-track{display:flex;gap:70px;white-space:nowrap;animation:scroll 32s linear infinite;width:max-content;}
+  .marquee:hover .marquee-track{animation-play-state:paused;}
+  .marquee-item{display:flex;align-items:center;gap:70px;font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);}
+  .marquee-item b{color:var(--brass-light);font-weight:400;}
+  .marquee-item .sep{color:var(--brass);}
+  @keyframes scroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 
-  /* SECTION generic */
-  section{padding:130px 0;position:relative;}
-  .section-head{max-width:640px;margin-bottom:64px;}
-  .section-head h2{font-size:clamp(2.1rem,3.6vw,3rem);font-weight:500;}
-  .section-head p{color:var(--muted);margin-top:16px;font-size:1.02rem;max-width:520px;}
+  section{padding:150px 0;position:relative;}
+  .section-head{max-width:600px;margin-bottom:70px;}
+  .section-head.center{margin-left:auto;margin-right:auto;text-align:center;}
+  .section-head h2{font-size:clamp(2rem,3.4vw,2.9rem);font-weight:300;}
+  .section-head h2 em{font-style:italic;color:var(--brass-light);}
+  .section-head p{color:var(--muted);margin-top:18px;font-size:1rem;}
 
   /* ABOUT */
-  #about{overflow:hidden;}
-  #about::before{
-    content:'';position:absolute;bottom:-20%;right:-10%;width:600px;height:600px;
-    background:radial-gradient(circle, rgba(30,58,61,0.5) 0%, transparent 70%);
-    pointer-events:none;z-index:0;
-  }
-  .about-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:70px;align-items:center;position:relative;z-index:1;}
-  .about-img{aspect-ratio:4/5;border-radius:2px;overflow:hidden;position:relative;}
-  .about-img img{filter:saturate(0.75) contrast(1.05);}
-  .about-img::before{
-    content:'';position:absolute;inset:0;z-index:1;
-    background:linear-gradient(160deg, rgba(204,126,63,0.18), rgba(30,58,61,0.35));
-    mix-blend-mode:hard-light;
-  }
-  .about-img::after{
-    content:'';position:absolute;inset:0;border:1px solid var(--line);z-index:2;
-  }
-  .about-text p{color:var(--muted);margin-bottom:18px;font-size:1.02rem;}
-  .about-text p:first-of-type{color:var(--cream);font-size:1.15rem;font-weight:400;}
+  #about::before{content:'';position:absolute;bottom:-10%;right:-8%;width:560px;height:560px;background:radial-gradient(circle, rgba(176,141,87,0.06) 0%, transparent 70%);pointer-events:none;}
+  .about-grid{display:grid;grid-template-columns:0.9fr 1.1fr;gap:90px;align-items:center;position:relative;}
+  .about-img{aspect-ratio:3/4;overflow:hidden;}
+  .about-img img{filter:saturate(0.65) contrast(1.08);}
+  .about-text .pull{font-family:'Fraunces',serif;font-style:italic;font-size:1.5rem;line-height:1.5;color:var(--cream);margin-bottom:28px;font-weight:300;}
+  .about-text p{color:var(--muted);margin-bottom:18px;font-size:0.98rem;}
 
   /* GALLERY */
-  .gallery-grid{
-    display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:180px;gap:14px;
-  }
-  .g-item{border-radius:2px;overflow:hidden;position:relative;cursor:pointer;}
-  .g-item img{transition:transform .6s ease;filter:saturate(0.8) contrast(1.05);}
-  .g-item::before{
-    content:'';position:absolute;inset:0;z-index:1;
-    background:linear-gradient(200deg, rgba(204,126,63,0.12), rgba(30,58,61,0.28));
-    mix-blend-mode:hard-light;pointer-events:none;
-  }
-  .g-item:hover img{transform:scale(1.08);}
-  .g-item.tall{grid-row:span 2;}
-  .g-item.wide{grid-column:span 2;}
-  .g-caption{
-    position:absolute;bottom:0;left:0;right:0;padding:14px 16px;z-index:2;
-    background:linear-gradient(0deg, rgba(18,24,26,0.92) 15%, transparent);
-    font-family:'JetBrains Mono',monospace;
-    font-size:0.7rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--ember-soft);
-  }
+  .gallery-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:22px;}
+  .g-item{grid-column:span 2;}
+  .g-item.lg{grid-column:span 3;}
+  .g-photo{aspect-ratio:4/5;overflow:hidden;}
+  .g-item.lg .g-photo{aspect-ratio:16/11;}
+  .g-photo img{filter:saturate(0.7) contrast(1.05);transition:transform .8s ease;}
+  .g-item:hover .g-photo img{transform:scale(1.05);}
+  .g-cap{margin-top:16px;display:flex;justify-content:space-between;align-items:baseline;}
+  .g-cap .name{font-family:'Fraunces',serif;font-style:italic;font-size:1rem;color:var(--cream);}
+  .g-cap .no{font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--brass);}
 
-  /* MENU / PRICING */
-  .menu-bg{background:rgba(30,58,61,0.22);border-top:1px solid var(--line);border-bottom:1px solid var(--line);position:relative;overflow:hidden;}
-  .menu-bg::before{
-    content:'';position:absolute;top:20%;right:-8%;width:500px;height:500px;
-    background:radial-gradient(circle, rgba(166,64,44,0.1) 0%, transparent 70%);
-    pointer-events:none;
-  }
-  .tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;position:relative;}
-  .tier{
-    border:1px solid var(--line);padding:44px 34px 34px;position:relative;
-    display:flex;flex-direction:column;transition:border-color .3s, transform .3s;
-    background:rgba(18,24,26,0.4);
-  }
-  .tier::before{
-    content:'';position:absolute;top:0;left:0;right:0;height:3px;
-    background:var(--teal);
-  }
-  .tier:hover{border-color:var(--ember);transform:translateY(-6px);}
-  .tier.featured{border-color:var(--ember);background:rgba(204,126,63,0.06);}
-  .tier.featured::before{background:var(--ember);}
-  .tier:last-child::before{background:var(--chili);}
-  .tier-tag{
-    position:absolute;top:-13px;left:34px;background:var(--ember);color:var(--ink);
-    font-size:0.68rem;letter-spacing:0.1em;padding:5px 12px;text-transform:uppercase;font-weight:500;
-  }
-  .tier h3{font-size:1.4rem;margin-bottom:6px;}
-  .tier .price{font-family:'JetBrains Mono',monospace;font-size:2.1rem;color:var(--ember-soft);margin:18px 0 22px;}
-  .tier .price span{font-size:0.95rem;color:var(--muted);}
-  .tier ul{list-style:none;flex:1;}
-  .tier li{
-    padding:11px 0;border-top:1px solid var(--line);font-size:0.92rem;color:var(--muted);
-  }
-  .tier li:first-child{border-top:none;}
-  .tier li b{color:var(--cream);font-weight:400;}
-  .tier .btn{margin-top:28px;justify-content:center;}
+  /* MENU CARD */
+  .menu-section{background:var(--panel);border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);}
+  .menu-panel{border:1px solid var(--hair);padding:70px 60px;position:relative;}
+  .menu-cols{display:grid;grid-template-columns:1fr 1fr;gap:70px;}
+  .menu-cat h4{font-family:'Fraunces',serif;font-style:italic;font-weight:400;font-size:1.15rem;color:var(--brass-light);margin-bottom:26px;padding-bottom:14px;border-bottom:1px solid var(--hair);}
+  .menu-cat{margin-bottom:44px;}
+  .menu-line{display:flex;align-items:baseline;margin-bottom:20px;}
+  .menu-line .name{font-size:0.98rem;color:var(--cream);white-space:nowrap;}
+  .menu-line .dots{flex:1;border-bottom:1px dotted rgba(140,132,120,0.4);margin:0 10px;transform:translateY(-5px);}
+  .menu-line .price{font-family:'JetBrains Mono',monospace;font-size:0.86rem;color:var(--brass-light);white-space:nowrap;}
+  .menu-desc{font-size:0.82rem;color:var(--muted);margin-top:-14px;margin-bottom:20px;font-style:italic;}
 
-  /* TESTIMONIALS */
-  .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;}
-  .testi{border-top:2px solid var(--ember);padding-top:26px;position:relative;}
-  .testi::before{
-    content:'"';position:absolute;top:-6px;left:0;
-    font-family:'Fraunces',serif;font-size:4rem;color:var(--ember);opacity:0.35;line-height:1;
-  }
-  .testi p{font-size:1.02rem;color:var(--cream);font-weight:300;font-style:italic;margin-top:20px;}
-  .testi-who{display:flex;align-items:center;gap:12px;margin-top:22px;}
-  .testi-avatar{
-    width:42px;height:42px;border-radius:50%;
-    background:linear-gradient(135deg, var(--teal), var(--ember));
-    display:flex;align-items:center;justify-content:center;
-    font-family:'Fraunces',serif;color:var(--cream);font-size:1rem;
-  }
-  .testi-name{font-size:0.9rem;}
-  .testi-role{font-size:0.78rem;color:var(--muted);}
+  /* SET MENUS */
+  .sets{margin-top:110px;}
+  .set-row{display:grid;grid-template-columns:1fr 3fr 1fr auto;gap:30px;align-items:center;padding:36px 0;border-top:1px solid var(--hair);}
+  .set-row:last-child{border-bottom:1px solid var(--hair);}
+  .set-row .set-no{font-family:'JetBrains Mono',monospace;color:var(--brass);font-size:0.8rem;}
+  .set-row h4{font-family:'Fraunces',serif;font-size:1.3rem;font-weight:400;}
+  .set-row .set-desc{color:var(--muted);font-size:0.88rem;margin-top:6px;}
+  .set-row .set-price{font-family:'JetBrains Mono',monospace;color:var(--brass-light);font-size:1.1rem;text-align:right;}
+  .set-row .set-price span{display:block;font-size:0.68rem;color:var(--muted);letter-spacing:0.05em;text-transform:uppercase;margin-top:4px;}
 
-  /* RESERVE / CONTACT */
-  .reserve{background:rgba(30,58,61,0.22);border-top:1px solid var(--line);}
-  .reserve-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;}
-  .reserve-info h3{font-size:1.3rem;margin-bottom:20px;}
-  .info-row{display:flex;gap:16px;padding:16px 0;border-top:1px solid var(--line);}
+  /* PRESS / TESTIMONIALS */
+  .press-list{display:flex;flex-direction:column;gap:0;max-width:820px;margin:0 auto;}
+  .press-item{padding:48px 0;border-top:1px solid var(--hair);text-align:center;}
+  .press-item:last-child{border-bottom:1px solid var(--hair);}
+  .press-item p{font-family:'Fraunces',serif;font-style:italic;font-size:1.4rem;line-height:1.55;color:var(--cream);font-weight:300;max-width:640px;margin:0 auto;}
+  .press-who{margin-top:24px;}
+  .press-who .n{font-size:0.82rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--brass-light);}
+  .press-who .r{font-size:0.78rem;color:var(--muted);margin-top:3px;}
+
+  /* RESERVE */
+  .reserve{background:var(--panel);border-top:1px solid var(--hair);}
+  .reserve-grid{display:grid;grid-template-columns:0.85fr 1.15fr;gap:100px;}
+  .info-row{padding:20px 0;border-top:1px solid var(--hair);display:flex;gap:20px;}
   .info-row:first-of-type{border-top:none;}
-  .info-label{width:110px;color:var(--muted);font-size:0.85rem;flex-shrink:0;text-transform:uppercase;letter-spacing:0.04em;}
-  .info-val{font-size:0.98rem;}
-  form{display:flex;flex-direction:column;gap:16px;}
-  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
-  label{font-size:0.76rem;letter-spacing:0.05em;text-transform:uppercase;color:var(--muted);margin-bottom:7px;display:block;}
+  .info-label{width:120px;flex-shrink:0;}
+  .form-panel{padding:56px;position:relative;}
+  form{display:flex;flex-direction:column;gap:30px;}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:30px;}
+  label{font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:10px;}
   input,select,textarea{
-    width:100%;background:transparent;border:1px solid var(--line);
-    color:var(--cream);padding:13px 14px;font-family:'Work Sans',sans-serif;font-size:0.94rem;
-    border-radius:2px;transition:border-color .25s;
+    width:100%;background:transparent;border:none;border-bottom:1px solid var(--hair);
+    color:var(--cream);padding:6px 0 12px;font-family:'Jost',sans-serif;font-size:0.96rem;
+    transition:border-color .3s;
   }
-  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--ember);}
-  select option{background:var(--ink);}
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--brass);}
+  select option{background:var(--obsidian);}
   .submit-btn{margin-top:8px;align-self:flex-start;}
-  .form-note{font-size:0.78rem;color:var(--muted);margin-top:4px;}
+  .form-note{font-size:0.78rem;color:var(--muted);margin-top:2px;}
 
-  /* FOOTER */
-  footer{padding:70px 0 40px;border-top:1px solid var(--line);}
-  .footer-top{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap;margin-bottom:56px;}
-  .footer-links{display:flex;gap:60px;}
-  .footer-col h4{font-size:0.78rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;}
-  .footer-col a{display:block;font-size:0.9rem;padding:5px 0;opacity:0.85;}
-  .footer-col a:hover{opacity:1;color:var(--ember-soft);}
-  .promo{
-    display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;
-    border-top:1px solid var(--line);padding-top:30px;font-size:0.85rem;color:var(--muted);
-  }
-  .promo a{color:var(--ember-soft);}
-  .promo-build{
-    display:flex;align-items:center;gap:10px;
-    border:1px solid var(--line);padding:10px 18px;border-radius:2px;
-    transition:border-color .25s;
-  }
-  .promo-build:hover{border-color:var(--ember);}
+  footer{padding:80px 0 44px;border-top:1px solid var(--hair);}
+  .footer-top{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap;margin-bottom:64px;}
+  .footer-brand{display:flex;align-items:center;gap:16px;}
+  .footer-links{display:flex;gap:70px;}
+  .footer-col h4{font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:18px;}
+  .footer-col a{display:block;font-size:0.9rem;padding:6px 0;opacity:0.85;}
+  .footer-col a:hover{opacity:1;color:var(--brass-light);}
+  .promo{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;border-top:1px solid var(--hair);padding-top:32px;font-size:0.82rem;color:var(--muted);}
+  .promo a{color:var(--brass-light);}
 
-  .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s ease, transform .8s ease;}
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .9s ease,transform .9s ease;}
   .reveal.in{opacity:1;transform:translateY(0);}
 
   @media(max-width:900px){
     .navlinks,.nav-cta{display:none;}
-    .about-grid,.reserve-grid{grid-template-columns:1fr;gap:40px;}
-    .tiers,.testi-grid{grid-template-columns:1fr;}
-    .stats .wrap{grid-template-columns:repeat(2,1fr);row-gap:30px;}
-    .stat{border-right:none;border-bottom:1px solid var(--line);padding-bottom:24px;}
+    .about-grid,.reserve-grid{grid-template-columns:1fr;gap:50px;}
+    .menu-cols{grid-template-columns:1fr;gap:10px;}
+    .menu-panel{padding:44px 26px;}
     .gallery-grid{grid-template-columns:repeat(2,1fr);}
-    .g-item.wide{grid-column:span 2;}
+    .g-item.lg{grid-column:span 2;}
+    .set-row{grid-template-columns:1fr;text-align:left;gap:10px;}
+    .set-row .set-price{text-align:left;}
     .form-row{grid-template-columns:1fr;}
+    .form-panel{padding:36px 20px;}
     .footer-top{flex-direction:column;}
-    .floating-cta{display:inline-flex;}
+    section{padding:100px 0;}
+    .wrap{padding:0 24px;}
   }
-  @media (prefers-reduced-motion: reduce){
-    *{animation:none !important;transition:none !important;}
-  }
+  @media(prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important;}}
 </style>
 </head>
 <body>
 
 <nav id="nav">
   <div class="wrap">
-    <div class="logo">Lantern <span>&</span> Wok</div>
+    <div class="monogram">L&amp;W</div>
     <div class="navlinks">
       <a href="#menu">Menu</a>
       <a href="#gallery">Gallery</a>
-      <a href="#about">About</a>
-      <a href="#reserve">Reserve</a>
+      <a href="#about">Our Story</a>
+      <a href="#reserve">Reservations</a>
     </div>
-    <a href="#reserve" class="nav-cta">Book a Table</a>
+    <a href="#reserve" class="nav-cta">Reserve</a>
   </div>
 </nav>
 
 <section class="hero">
-  <div class="hero-bg"><img src="https://picsum.photos/id/292/1600/1000" alt="Rooftop dining at dusk"></div>
-  <div class="hero-glow"></div>
+  <div class="hero-bg"><img src="https://picsum.photos/id/292/1800/1100" alt="Rooftop dining at dusk"></div>
   <div class="wrap hero-content">
-    <div class="eyebrow">Rooftop · Pan-Asian · Lusaka</div>
-    <h1>Wok-fired flavour, <em>ten floors</em> above the city.</h1>
-    <p class="hero-sub">Indo-Chinese and Pan-Asian plates, a glasshouse rooftop bar, and a sunset that doesn't need a filter. Open nightly from 4pm.</p>
+    <span class="caps">Rooftop &middot; Pan&#8209;Asian &middot; Lusaka</span>
+    <h1>Wok&#8209;fired flavour, <em>ten floors</em> above the city</h1>
+    <div class="hero-rule"></div>
+    <p class="hero-sub">Indo-Chinese and Pan-Asian dining in a glasshouse rooftop setting. Open nightly from 4pm.</p>
     <div class="hero-actions">
       <a href="#reserve" class="btn btn-primary">Reserve a Table</a>
-      <a href="#menu" class="btn btn-ghost">View Menu &amp; Pricing</a>
+      <a href="#menu" class="btn btn-line">View the Menu</a>
     </div>
   </div>
+  <div class="scroll-cue"></div>
 </section>
 
-<div class="stats">
-  <div class="wrap">
-    <div class="stat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg><div class="num">40+</div><div class="label">Wok &amp; Grill Dishes</div></div>
-    <div class="stat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><div class="num">180</div><div class="label">Rooftop Covers</div></div>
-    <div class="stat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><div class="num">4.8</div><div class="label">Avg. Guest Rating</div></div>
-    <div class="stat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg><div class="num">2019</div><div class="label">Open Since</div></div>
+<div class="marquee">
+  <div class="marquee-track">
+    <div class="marquee-item"><b>Best Rooftop Bar</b> — Lusaka Living, 2025 <span class="sep">&#9670;</span></div>
+    <div class="marquee-item"><b>Editor's Choice</b> — Time Out Lusaka <span class="sep">&#9670;</span></div>
+    <div class="marquee-item"><b>Top 10 Fine Dining</b> — Zambia Eats <span class="sep">&#9670;</span></div>
+    <div class="marquee-item"><b>Best Sunset View</b> — Zed Foodies Awards <span class="sep">&#9670;</span></div>
+    <div class="marquee-item"><b>Best Rooftop Bar</b> — Lusaka Living, 2025 <span class="sep">&#9670;</span></div>
+    <div class="marquee-item"><b>Editor's Choice</b> — Time Out Lusaka <span class="sep">&#9670;</span></div>
+    <div class="marquee-item"><b>Top 10 Fine Dining</b> — Zambia Eats <span class="sep">&#9670;</span></div>
+    <div class="marquee-item"><b>Best Sunset View</b> — Zed Foodies Awards <span class="sep">&#9670;</span></div>
   </div>
 </div>
 
 <section id="about">
   <div class="wrap about-grid">
-    <div class="about-img reveal">
-      <img src="https://picsum.photos/id/431/700/900" alt="Chef preparing wok dish">
+    <div class="about-img framed reveal">
+      <img src="https://picsum.photos/id/431/700/950" alt="Chef preparing wok dish">
     </div>
     <div class="about-text reveal">
-      <div class="eyebrow">Our Story</div>
-      <h2 style="margin-bottom:24px;">A kitchen built around the wok, and a room built around the view.</h2>
-      <p>Lantern &amp; Wok opened in 2019 on the top floor of a converted warehouse in Rhodes Park, with one idea: Lusaka deserved a rooftop kitchen that took Indo-Chinese and Pan-Asian cooking seriously.</p>
-      <p>Every dish leaves an open wok station you can watch from the bar. We import our chilli oil, char siu, and five-spice from Guangzhou, and pair them with vegetables sourced daily from Soweto Market.</p>
-      <p>The dining room seats 120, the rooftop bar seats another 60, and the sunset over Lusaka's northern suburbs is the same every night — which is exactly why people keep coming back for it.</p>
+      <div class="eyebrow caps">Our Story</div>
+      <p class="pull">"Lusaka deserved a rooftop kitchen that took Indo-Chinese and Pan-Asian cooking seriously. So we built one."</p>
+      <p>Lantern &amp; Wok opened in 2019 on the top floor of a converted warehouse in Rhodes Park. Every dish leaves an open wok station you can watch from the bar.</p>
+      <p>We import chilli oil, char siu, and five-spice from Guangzhou, and pair them with vegetables sourced daily from Soweto Market. The dining room seats 120, the rooftop bar another 60 — and the sunset is the same every night, which is exactly why guests keep returning for it.</p>
     </div>
   </div>
 </section>
 
 <section id="gallery">
   <div class="wrap">
-    <div class="section-head reveal">
-      <div class="eyebrow">Gallery</div>
-      <h2>The room, the rooftop, the food.</h2>
+    <div class="section-head center reveal" style="margin-left:auto;margin-right:auto;">
+      <div class="eyebrow caps" style="justify-content:center;">Gallery</div>
+      <h2>The room, the rooftop, <em>the food</em></h2>
     </div>
     <div class="gallery-grid reveal">
-      <div class="g-item tall"><img src="https://picsum.photos/id/1080/500/800" alt="Rooftop lounge seating"><div class="g-caption">Rooftop Lounge</div></div>
-      <div class="g-item wide"><img src="https://picsum.photos/id/292/900/400" alt="Sunset over the rooftop bar"><div class="g-caption">Golden Hour, Rooftop Bar</div></div>
-      <div class="g-item"><img src="https://picsum.photos/id/163/400/400" alt="Wok fired noodles"><div class="g-caption">Chilli Garlic Noodles</div></div>
-      <div class="g-item"><img src="https://picsum.photos/id/431/400/400" alt="Chef at the wok station"><div class="g-caption">Open Wok Station</div></div>
-      <div class="g-item"><img src="https://picsum.photos/id/312/400/400" alt="Cocktail bar"><div class="g-caption">The Bar</div></div>
-      <div class="g-item wide"><img src="https://picsum.photos/id/1060/900/400" alt="Interior dining room"><div class="g-caption">Main Dining Room</div></div>
+      <div class="g-item lg"><div class="g-photo framed"><img src="https://picsum.photos/id/1080/900/620" alt="Rooftop lounge"></div><div class="g-cap"><span class="name">Rooftop Lounge</span><span class="no">01</span></div></div>
+      <div class="g-item"><div class="g-photo framed"><img src="https://picsum.photos/id/163/500/700" alt="Wok fired noodles"></div><div class="g-cap"><span class="name">Chilli Garlic Noodles</span><span class="no">02</span></div></div>
+      <div class="g-item"><div class="g-photo framed"><img src="https://picsum.photos/id/431/500/700" alt="Wok station"></div><div class="g-cap"><span class="name">Open Wok Station</span><span class="no">03</span></div></div>
+      <div class="g-item"><div class="g-photo framed"><img src="https://picsum.photos/id/312/500/700" alt="Bar"></div><div class="g-cap"><span class="name">The Bar</span><span class="no">04</span></div></div>
+      <div class="g-item lg"><div class="g-photo framed"><img src="https://picsum.photos/id/1060/900/620" alt="Dining room"></div><div class="g-cap"><span class="name">Main Dining Room</span><span class="no">05</span></div></div>
     </div>
   </div>
 </section>
 
-<section id="menu" class="menu-bg">
+<section id="menu" class="menu-section">
   <div class="wrap">
-    <div class="section-head reveal">
-      <div class="eyebrow">Menu &amp; Pricing</div>
-      <h2>Three ways to eat with us.</h2>
-      <p>À la carte is always open, but if you're deciding ahead of time, here's how most tables order.</p>
+    <div class="section-head center reveal" style="margin-left:auto;margin-right:auto;">
+      <div class="eyebrow caps" style="justify-content:center;">The Menu</div>
+      <h2>À la carte, <em>always open</em></h2>
     </div>
-    <div class="tiers reveal">
-      <div class="tier">
-        <h3>Street Wok</h3>
-        <div class="price">K180 <span>/ person</span></div>
-        <ul>
-          <li><b>Starter</b> — Chilli garlic momos or spring rolls</li>
-          <li><b>Main</b> — Choice of Hakka noodles or fried rice</li>
-          <li><b>Protein</b> — Chicken or vegetable</li>
-          <li><b>Drink</b> — House iced tea</li>
-        </ul>
-        <a href="#reserve" class="btn btn-ghost">Reserve for This</a>
+
+    <div class="menu-panel framed reveal">
+      <div class="menu-cols">
+        <div>
+          <div class="menu-cat">
+            <h4>Starters</h4>
+            <div class="menu-line"><span class="name">Chilli Garlic Prawns</span><span class="dots"></span><span class="price">K145</span></div>
+            <div class="menu-line"><span class="name">Vegetable Momos</span><span class="dots"></span><span class="price">K95</span></div>
+            <div class="menu-desc">served with Schezwan dip</div>
+            <div class="menu-line"><span class="name">Crispy Lotus Root</span><span class="dots"></span><span class="price">K85</span></div>
+            <div class="menu-line"><span class="name">Tom Yum Soup</span><span class="dots"></span><span class="price">K110</span></div>
+            <div class="menu-desc">prawn or tofu</div>
+          </div>
+          <div class="menu-cat">
+            <h4>Wok Mains</h4>
+            <div class="menu-line"><span class="name">Kung Pao Chicken</span><span class="dots"></span><span class="price">K175</span></div>
+            <div class="menu-line"><span class="name">Black Pepper Beef</span><span class="dots"></span><span class="price">K195</span></div>
+            <div class="menu-desc">charred onion, spring garlic</div>
+            <div class="menu-line"><span class="name">Paneer Manchurian</span><span class="dots"></span><span class="price">K140</span></div>
+            <div class="menu-line"><span class="name">Wok-Tossed Prawns</span><span class="dots"></span><span class="price">K220</span></div>
+            <div class="menu-desc">XO sauce, spring onion</div>
+          </div>
+        </div>
+        <div>
+          <div class="menu-cat">
+            <h4>Rooftop Grill</h4>
+            <div class="menu-line"><span class="name">Lemongrass Chicken Skewers</span><span class="dots"></span><span class="price">K160</span></div>
+            <div class="menu-line"><span class="name">Tandoori Salmon</span><span class="dots"></span><span class="price">K230</span></div>
+            <div class="menu-line"><span class="name">Charcoal Lamb Chops</span><span class="dots"></span><span class="price">K260</span></div>
+            <div class="menu-desc">rack of two, mint chutney</div>
+          </div>
+          <div class="menu-cat">
+            <h4>Desserts</h4>
+            <div class="menu-line"><span class="name">Mango Sticky Rice</span><span class="dots"></span><span class="price">K85</span></div>
+            <div class="menu-line"><span class="name">Sesame Banana</span><span class="dots"></span><span class="price">K75</span></div>
+            <div class="menu-desc">palm sugar caramel</div>
+            <div class="menu-line"><span class="name">Matcha Tiramisu</span><span class="dots"></span><span class="price">K95</span></div>
+          </div>
+        </div>
       </div>
-      <div class="tier featured">
-        <span class="tier-tag">Most Booked</span>
-        <h3>Rooftop Feast</h3>
-        <div class="price">K420 <span>/ person</span></div>
-        <ul>
-          <li><b>Starter</b> — Sharing platter, 3 items</li>
-          <li><b>Main</b> — Two wok dishes + rice or noodles</li>
-          <li><b>Protein</b> — Prawn, beef, chicken or paneer</li>
-          <li><b>Dessert</b> — Sesame banana or mango sticky rice</li>
-          <li><b>Drink</b> — One rooftop cocktail</li>
-        </ul>
-        <a href="#reserve" class="btn btn-primary">Reserve for This</a>
+    </div>
+
+    <div class="sets reveal">
+      <div class="section-head" style="margin-bottom:20px;">
+        <div class="eyebrow caps">Set Menus</div>
+        <h2 style="font-size:1.9rem;">Three ways to eat with us</h2>
       </div>
-      <div class="tier">
-        <h3>Chef's Table</h3>
-        <div class="price">K780 <span>/ person</span></div>
-        <ul>
-          <li><b>7-course</b> tasting menu, chef's choice</li>
-          <li>Seasonal seafood &amp; premium cuts</li>
-          <li>Wine or cocktail pairing included</li>
-          <li>Seating at the open wok counter</li>
-          <li>Min. 2 guests, book 48hrs ahead</li>
-        </ul>
-        <a href="#reserve" class="btn btn-ghost">Reserve for This</a>
+      <div class="set-row">
+        <div class="set-no">01</div>
+        <div><h4>Street Wok</h4><div class="set-desc">Starter, choice of noodles or fried rice, chicken or vegetable, house iced tea.</div></div>
+        <div></div>
+        <div class="set-price">K180<span>per person</span></div>
+      </div>
+      <div class="set-row">
+        <div class="set-no">02</div>
+        <div><h4>Rooftop Feast</h4><div class="set-desc">Sharing platter, two wok dishes, dessert, one rooftop cocktail.</div></div>
+        <div></div>
+        <div class="set-price">K420<span>per person</span></div>
+      </div>
+      <div class="set-row">
+        <div class="set-no">03</div>
+        <div><h4>Chef's Table</h4><div class="set-desc">Seven-course tasting menu with pairing, seated at the open wok counter. Min. 2 guests.</div></div>
+        <div></div>
+        <div class="set-price">K780<span>per person</span></div>
       </div>
     </div>
   </div>
@@ -442,40 +342,22 @@
 
 <section>
   <div class="wrap">
-    <div class="section-head reveal">
-      <div class="eyebrow">Guest Notes</div>
-      <h2>What people say after the second cocktail.</h2>
+    <div class="section-head center reveal" style="margin-left:auto;margin-right:auto;">
+      <div class="eyebrow caps" style="justify-content:center;">Guest Notes</div>
+      <h2>What people say <em>after the second cocktail</em></h2>
     </div>
-    <div class="testi-grid reveal">
-      <div class="testi">
+    <div class="press-list reveal">
+      <div class="press-item">
         <p>"The chilli garlic noodles alone are worth the drive across town. We've had three team dinners here this year."</p>
-        <div class="testi-who">
-          <div class="testi-avatar">M</div>
-          <div>
-            <div class="testi-name">Mutale Chanda</div>
-            <div class="testi-role">Regular, Kabulonga</div>
-          </div>
-        </div>
+        <div class="press-who"><div class="n">Mutale Chanda</div><div class="r">Regular, Kabulonga</div></div>
       </div>
-      <div class="testi">
+      <div class="press-item">
         <p>"Booked the Chef's Table for our anniversary. Watching the wok station work through seven courses was the whole night."</p>
-        <div class="testi-who">
-          <div class="testi-avatar">C</div>
-          <div>
-            <div class="testi-name">Chomba Mwansa</div>
-            <div class="testi-role">Guest since 2021</div>
-          </div>
-        </div>
+        <div class="press-who"><div class="n">Chomba Mwansa</div><div class="r">Guest since 2021</div></div>
       </div>
-      <div class="testi">
+      <div class="press-item">
         <p>"Best rooftop in Lusaka, full stop. We moved our whole office end-of-year party here after one visit."</p>
-        <div class="testi-who">
-          <div class="testi-avatar">N</div>
-          <div>
-            <div class="testi-name">Natasha Phiri</div>
-            <div class="testi-role">Operations Lead, local NGO</div>
-          </div>
-        </div>
+        <div class="press-who"><div class="n">Natasha Phiri</div><div class="r">Operations Lead, local NGO</div></div>
       </div>
     </div>
   </div>
@@ -483,36 +365,35 @@
 
 <section id="reserve" class="reserve">
   <div class="wrap reserve-grid">
-    <div class="reserve-info reveal">
-      <div class="eyebrow">Visit Us</div>
-      <h3>Rooftop Level, Addis Ababa Drive, Rhodes Park, Lusaka</h3>
-      <div class="info-row"><div class="info-label">Hours</div><div class="info-val">Tue–Sun, 4pm – Late<br>Closed Mondays</div></div>
-      <div class="info-row"><div class="info-label">Phone</div><div class="info-val">+260 96 000 0000</div></div>
-      <div class="info-row"><div class="info-label">WhatsApp</div><div class="info-val">+260 96 000 0000</div></div>
-      <div class="info-row"><div class="info-label">Groups</div><div class="info-val">10+ guests, call ahead for the rooftop lounge</div></div>
+    <div class="reveal">
+      <div class="eyebrow caps">Visit Us</div>
+      <h3 style="font-size:1.6rem;font-weight:400;margin-bottom:10px;">Rooftop Level, Addis Ababa Drive</h3>
+      <p style="color:var(--muted);margin-bottom:10px;">Rhodes Park, Lusaka</p>
+      <div class="info-row"><div class="info-label caps">Hours</div><div>Tue–Sun, 4pm – Late<br>Closed Mondays</div></div>
+      <div class="info-row"><div class="info-label caps">Phone</div><div>+260 96 000 0000</div></div>
+      <div class="info-row"><div class="info-label caps">WhatsApp</div><div>+260 96 000 0000</div></div>
+      <div class="info-row"><div class="info-label caps">Groups</div><div>10+ guests, call ahead for the rooftop lounge</div></div>
     </div>
     <div class="reveal">
-      <form onsubmit="event.preventDefault(); document.getElementById('formMsg').style.display='block';">
-        <div class="form-row">
-          <div><label>Full Name</label><input type="text" required placeholder="Your name"></div>
-          <div><label>Phone</label><input type="tel" required placeholder="09XX XXX XXX"></div>
-        </div>
-        <div class="form-row">
-          <div><label>Date</label><input type="date" required></div>
-          <div><label>Time</label><input type="time" required></div>
-        </div>
-        <div class="form-row">
-          <div><label>Party Size</label>
-            <select><option>2 guests</option><option>4 guests</option><option>6 guests</option><option>8+ guests</option></select>
+      <div class="form-panel framed">
+        <form onsubmit="event.preventDefault(); document.getElementById('formMsg').style.display='block';">
+          <div class="form-row">
+            <div><label>Full Name</label><input type="text" required placeholder="Your name"></div>
+            <div><label>Phone</label><input type="tel" required placeholder="09XX XXX XXX"></div>
           </div>
-          <div><label>Seating</label>
-            <select><option>Rooftop Bar</option><option>Main Dining Room</option><option>Chef's Table</option></select>
+          <div class="form-row">
+            <div><label>Date</label><input type="date" required></div>
+            <div><label>Time</label><input type="time" required></div>
           </div>
-        </div>
-        <div><label>Notes (optional)</label><textarea rows="3" placeholder="Dietary requirements, occasion, etc."></textarea></div>
-        <button class="btn btn-primary submit-btn" type="submit">Confirm Reservation</button>
-        <div class="form-note" id="formMsg" style="display:none;color:var(--ember-soft);">Demo form. In your live site, this sends straight to your phone or inbox.</div>
-      </form>
+          <div class="form-row">
+            <div><label>Party Size</label><select><option>2 guests</option><option>4 guests</option><option>6 guests</option><option>8+ guests</option></select></div>
+            <div><label>Seating</label><select><option>Rooftop Bar</option><option>Main Dining Room</option><option>Chef's Table</option></select></div>
+          </div>
+          <div><label>Notes (optional)</label><textarea rows="2" placeholder="Dietary requirements, occasion, etc."></textarea></div>
+          <button class="btn btn-primary submit-btn" type="submit">Confirm Reservation</button>
+          <div class="form-note" id="formMsg" style="display:none;color:var(--brass-light);">Demo form. In your live site, this sends straight to your phone or inbox.</div>
+        </form>
+      </div>
     </div>
   </div>
 </section>
@@ -520,48 +401,32 @@
 <footer>
   <div class="wrap">
     <div class="footer-top">
-      <div>
-        <div class="logo" style="margin-bottom:14px;">Lantern <span>&</span> Wok</div>
-        <p style="color:var(--muted);max-width:260px;font-size:0.9rem;">Rooftop Pan-Asian kitchen and bar, Rhodes Park, Lusaka.</p>
+      <div class="footer-brand">
+        <div class="monogram">L&amp;W</div>
+        <div>
+          <div style="font-family:'Fraunces',serif;font-size:1.2rem;">Lantern &amp; Wok</div>
+          <p style="color:var(--muted);font-size:0.85rem;margin-top:4px;">Rooftop Pan-Asian kitchen, Rhodes Park, Lusaka.</p>
+        </div>
       </div>
       <div class="footer-links">
-        <div class="footer-col">
-          <h4>Explore</h4>
-          <a href="#menu">Menu &amp; Pricing</a>
-          <a href="#gallery">Gallery</a>
-          <a href="#about">Our Story</a>
-        </div>
-        <div class="footer-col">
-          <h4>Visit</h4>
-          <a href="#reserve">Reserve a Table</a>
-          <a href="#reserve">Groups &amp; Events</a>
-          <a href="#">Directions</a>
-        </div>
+        <div class="footer-col"><h4>Explore</h4><a href="#menu">Menu</a><a href="#gallery">Gallery</a><a href="#about">Our Story</a></div>
+        <div class="footer-col"><h4>Visit</h4><a href="#reserve">Reservations</a><a href="#reserve">Groups &amp; Events</a><a href="#">Directions</a></div>
       </div>
     </div>
     <div class="promo">
       <div>© 2026 Lantern &amp; Wok. Demo site, sample content for presentation purposes.</div>
-      <a class="promo-build" href="https://obito324hx.github.io/Portfolio/" target="_blank" rel="noopener">
-        Site design &amp; build by <b style="color:var(--ember-soft);margin-left:4px;">Cletus Bwalya</b>
-      </a>
+      <a href="https://obito324hx.github.io/Portfolio/" target="_blank" rel="noopener">Site design &amp; build by <b style="color:var(--brass-light);">Cletus Bwalya</b></a>
     </div>
   </div>
 </footer>
 
-<a href="#reserve" class="floating-cta" id="floatCta">Reserve a Table</a>
-
 <script>
   const nav = document.getElementById('nav');
-  const floatCta = document.getElementById('floatCta');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 40);
-    floatCta.classList.toggle('show', window.scrollY > 600);
-  });
-
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40));
   const reveals = document.querySelectorAll('.reveal');
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
-  }, { threshold: 0.15 });
+  }, { threshold: 0.12 });
   reveals.forEach(el => io.observe(el));
 </script>
 
