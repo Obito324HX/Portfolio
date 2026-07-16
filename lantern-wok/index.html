@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lantern & Wok — Rooftop Pan-Asian Kitchen, Lusaka</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Work+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#12181A;
+    --teal:#1E3A3D;
+    --ember:#CC7E3F;
+    --ember-soft:#E3A46A;
+    --chili:#A6402C;
+    --cream:#F3ECDD;
+    --muted:#93A7A0;
+    --line:rgba(243,236,221,0.12);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ink);
+    color:var(--cream);
+    font-family:'Work Sans',sans-serif;
+    font-weight:300;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.display{font-family:'Fraunces',serif;font-weight:500;}
+  .mono{font-family:'JetBrains Mono',monospace;}
+  a{color:inherit;text-decoration:none;}
+  img{display:block;width:100%;height:100%;object-fit:cover;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px;}
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.72rem;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:var(--ember-soft);
+    display:flex;align-items:center;gap:10px;
+    margin-bottom:18px;
+  }
+  .eyebrow::before{content:'';width:22px;height:1px;background:var(--ember);}
+
+  /* NAV */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    padding:22px 0;
+    transition:background .4s ease, padding .4s ease, border-color .4s ease;
+    border-bottom:1px solid transparent;
+  }
+  nav.scrolled{
+    background:rgba(18,24,26,0.92);
+    backdrop-filter:blur(10px);
+    padding:14px 0;
+    border-color:var(--line);
+  }
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;}
+  .logo{font-family:'Fraunces',serif;font-size:1.3rem;font-weight:600;letter-spacing:0.01em;}
+  .logo span{color:var(--ember-soft);}
+  .navlinks{display:flex;gap:38px;font-size:0.88rem;letter-spacing:0.02em;}
+  .navlinks a{opacity:0.8;transition:opacity .25s;position:relative;}
+  .navlinks a:hover{opacity:1;}
+  .nav-cta{
+    border:1px solid var(--ember);
+    padding:9px 20px;
+    font-size:0.82rem;
+    border-radius:2px;
+    transition:background .25s, color .25s;
+    letter-spacing:0.03em;
+  }
+  .nav-cta:hover{background:var(--ember);color:var(--ink);}
+  .navtoggle{display:none;}
+
+  /* HERO */
+  .hero{
+    position:relative;min-height:100vh;display:flex;align-items:flex-end;
+    padding-bottom:90px;
+  }
+  .hero-bg{position:absolute;inset:0;z-index:0;}
+  .hero-bg img{filter:saturate(0.85) brightness(0.55);}
+  .hero-bg::after{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(180deg, rgba(18,24,26,0.35) 0%, rgba(18,24,26,0.55) 55%, var(--ink) 100%);
+  }
+  .hero-glow{
+    position:absolute;left:50%;top:38%;width:900px;height:900px;
+    transform:translate(-50%,-50%);
+    background:radial-gradient(circle, rgba(204,126,63,0.16) 0%, rgba(204,126,63,0) 65%);
+    z-index:1;
+    animation:pulse 7s ease-in-out infinite;
+    pointer-events:none;
+  }
+  @keyframes pulse{
+    0%,100%{opacity:0.7;transform:translate(-50%,-50%) scale(1);}
+    50%{opacity:1;transform:translate(-50%,-50%) scale(1.08);}
+  }
+  .hero-content{position:relative;z-index:2;}
+  .hero h1{
+    font-size:clamp(3rem,7vw,5.6rem);
+    line-height:0.98;
+    max-width:820px;
+    font-weight:500;
+  }
+  .hero h1 em{font-style:italic;color:var(--ember-soft);font-weight:300;}
+  .hero-sub{
+    max-width:480px;margin-top:26px;font-size:1.05rem;color:var(--muted);font-weight:300;
+  }
+  .hero-actions{display:flex;gap:16px;margin-top:40px;flex-wrap:wrap;}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:15px 30px;font-size:0.88rem;letter-spacing:0.03em;
+    border-radius:2px;transition:all .25s ease;
+    font-family:'Work Sans',sans-serif;
+  }
+  .btn-primary{background:var(--ember);color:var(--ink);font-weight:500;}
+  .btn-primary:hover{background:var(--ember-soft);}
+  .btn-ghost{border:1px solid var(--line);color:var(--cream);}
+  .btn-ghost:hover{border-color:var(--ember-soft);}
+
+  /* STATS */
+  .stats{
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+    background:rgba(30,58,61,0.28);
+  }
+  .stats .wrap{
+    display:grid;grid-template-columns:repeat(4,1fr);
+    padding:52px 32px;
+  }
+  .stat{text-align:center;border-right:1px solid var(--line);padding:0 12px;}
+  .stat:last-child{border-right:none;}
+  .stat .num{font-family:'Fraunces',serif;font-size:2.4rem;color:var(--ember-soft);}
+  .stat .label{font-size:0.78rem;color:var(--muted);letter-spacing:0.05em;margin-top:6px;text-transform:uppercase;}
+
+  /* SECTION generic */
+  section{padding:130px 0;position:relative;}
+  .section-head{max-width:640px;margin-bottom:64px;}
+  .section-head h2{font-size:clamp(2.1rem,3.6vw,3rem);font-weight:500;}
+  .section-head p{color:var(--muted);margin-top:16px;font-size:1.02rem;max-width:520px;}
+
+  /* ABOUT */
+  .about-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:70px;align-items:center;}
+  .about-img{aspect-ratio:4/5;border-radius:2px;overflow:hidden;position:relative;}
+  .about-img::after{
+    content:'';position:absolute;inset:0;border:1px solid var(--line);
+  }
+  .about-text p{color:var(--muted);margin-bottom:18px;font-size:1.02rem;}
+  .about-text p:first-of-type{color:var(--cream);font-size:1.15rem;font-weight:400;}
+
+  /* GALLERY */
+  .gallery-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:180px;gap:14px;
+  }
+  .g-item{border-radius:2px;overflow:hidden;position:relative;cursor:pointer;}
+  .g-item img{transition:transform .6s ease;}
+  .g-item:hover img{transform:scale(1.08);}
+  .g-item.tall{grid-row:span 2;}
+  .g-item.wide{grid-column:span 2;}
+  .g-caption{
+    position:absolute;bottom:0;left:0;right:0;padding:16px;
+    background:linear-gradient(0deg, rgba(18,24,26,0.85), transparent);
+    font-size:0.78rem;letter-spacing:0.03em;color:var(--cream);
+    opacity:0;transition:opacity .3s;
+  }
+  .g-item:hover .g-caption{opacity:1;}
+
+  /* MENU / PRICING */
+  .menu-bg{background:rgba(30,58,61,0.22);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+  .tier{
+    border:1px solid var(--line);padding:44px 34px;position:relative;
+    display:flex;flex-direction:column;transition:border-color .3s, transform .3s;
+    background:rgba(18,24,26,0.4);
+  }
+  .tier:hover{border-color:var(--ember);transform:translateY(-6px);}
+  .tier.featured{border-color:var(--ember);background:rgba(204,126,63,0.06);}
+  .tier-tag{
+    position:absolute;top:-13px;left:34px;background:var(--ember);color:var(--ink);
+    font-size:0.68rem;letter-spacing:0.1em;padding:5px 12px;text-transform:uppercase;font-weight:500;
+  }
+  .tier h3{font-size:1.4rem;margin-bottom:6px;}
+  .tier .price{font-family:'JetBrains Mono',monospace;font-size:2.1rem;color:var(--ember-soft);margin:18px 0 22px;}
+  .tier .price span{font-size:0.95rem;color:var(--muted);}
+  .tier ul{list-style:none;flex:1;}
+  .tier li{
+    padding:11px 0;border-top:1px solid var(--line);font-size:0.92rem;color:var(--muted);
+  }
+  .tier li:first-child{border-top:none;}
+  .tier li b{color:var(--cream);font-weight:400;}
+  .tier .btn{margin-top:28px;justify-content:center;}
+
+  /* TESTIMONIALS */
+  .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;}
+  .testi{border-top:2px solid var(--ember);padding-top:26px;}
+  .testi p{font-size:1.02rem;color:var(--cream);font-weight:300;font-style:italic;}
+  .testi-who{display:flex;align-items:center;gap:12px;margin-top:22px;}
+  .testi-avatar{
+    width:42px;height:42px;border-radius:50%;background:var(--teal);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Fraunces',serif;color:var(--ember-soft);font-size:1rem;
+  }
+  .testi-name{font-size:0.9rem;}
+  .testi-role{font-size:0.78rem;color:var(--muted);}
+
+  /* RESERVE / CONTACT */
+  .reserve{background:rgba(30,58,61,0.22);border-top:1px solid var(--line);}
+  .reserve-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;}
+  .reserve-info h3{font-size:1.3rem;margin-bottom:20px;}
+  .info-row{display:flex;gap:16px;padding:16px 0;border-top:1px solid var(--line);}
+  .info-row:first-of-type{border-top:none;}
+  .info-label{width:110px;color:var(--muted);font-size:0.85rem;flex-shrink:0;text-transform:uppercase;letter-spacing:0.04em;}
+  .info-val{font-size:0.98rem;}
+  form{display:flex;flex-direction:column;gap:16px;}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  label{font-size:0.76rem;letter-spacing:0.05em;text-transform:uppercase;color:var(--muted);margin-bottom:7px;display:block;}
+  input,select,textarea{
+    width:100%;background:transparent;border:1px solid var(--line);
+    color:var(--cream);padding:13px 14px;font-family:'Work Sans',sans-serif;font-size:0.94rem;
+    border-radius:2px;transition:border-color .25s;
+  }
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--ember);}
+  select option{background:var(--ink);}
+  .submit-btn{margin-top:8px;align-self:flex-start;}
+  .form-note{font-size:0.78rem;color:var(--muted);margin-top:4px;}
+
+  /* FOOTER */
+  footer{padding:70px 0 40px;border-top:1px solid var(--line);}
+  .footer-top{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap;margin-bottom:56px;}
+  .footer-links{display:flex;gap:60px;}
+  .footer-col h4{font-size:0.78rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;}
+  .footer-col a{display:block;font-size:0.9rem;padding:5px 0;opacity:0.85;}
+  .footer-col a:hover{opacity:1;color:var(--ember-soft);}
+  .promo{
+    display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;
+    border-top:1px solid var(--line);padding-top:30px;font-size:0.85rem;color:var(--muted);
+  }
+  .promo a{color:var(--ember-soft);}
+  .promo-build{
+    display:flex;align-items:center;gap:10px;
+    border:1px solid var(--line);padding:10px 18px;border-radius:2px;
+    transition:border-color .25s;
+  }
+  .promo-build:hover{border-color:var(--ember);}
+
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s ease, transform .8s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+
+  @media(max-width:900px){
+    .navlinks,.nav-cta{display:none;}
+    .about-grid,.reserve-grid{grid-template-columns:1fr;gap:40px;}
+    .tiers,.testi-grid{grid-template-columns:1fr;}
+    .stats .wrap{grid-template-columns:repeat(2,1fr);row-gap:30px;}
+    .stat{border-right:none;border-bottom:1px solid var(--line);padding-bottom:24px;}
+    .gallery-grid{grid-template-columns:repeat(2,1fr);}
+    .g-item.wide{grid-column:span 2;}
+    .form-row{grid-template-columns:1fr;}
+    .footer-top{flex-direction:column;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important;transition:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="wrap">
+    <div class="logo">Lantern <span>&</span> Wok</div>
+    <div class="navlinks">
+      <a href="#menu">Menu</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#about">About</a>
+      <a href="#reserve">Reserve</a>
+    </div>
+    <a href="#reserve" class="nav-cta">Book a Table</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"><img src="https://picsum.photos/id/292/1600/1000" alt="Rooftop dining at dusk"></div>
+  <div class="hero-glow"></div>
+  <div class="wrap hero-content">
+    <div class="eyebrow">Rooftop · Pan-Asian · Lusaka</div>
+    <h1>Wok-fired flavour, <em>ten floors</em> above the city.</h1>
+    <p class="hero-sub">Indo-Chinese and Pan-Asian plates, a glasshouse rooftop bar, and a sunset that doesn't need a filter. Open nightly from 4pm.</p>
+    <div class="hero-actions">
+      <a href="#reserve" class="btn btn-primary">Reserve a Table</a>
+      <a href="#menu" class="btn btn-ghost">View Menu &amp; Pricing</a>
+    </div>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="wrap">
+    <div class="stat"><div class="num">40+</div><div class="label">Wok &amp; Grill Dishes</div></div>
+    <div class="stat"><div class="num">180</div><div class="label">Rooftop Covers</div></div>
+    <div class="stat"><div class="num">4.8</div><div class="label">Avg. Guest Rating</div></div>
+    <div class="stat"><div class="num">2019</div><div class="label">Open Since</div></div>
+  </div>
+</div>
+
+<section id="about">
+  <div class="wrap about-grid">
+    <div class="about-img reveal">
+      <img src="https://picsum.photos/id/431/700/900" alt="Chef preparing wok dish">
+    </div>
+    <div class="about-text reveal">
+      <div class="eyebrow">Our Story</div>
+      <h2 style="margin-bottom:24px;">A kitchen built around the wok, and a room built around the view.</h2>
+      <p>Lantern &amp; Wok opened in 2019 on the top floor of a converted warehouse in Rhodes Park, with one idea: Lusaka deserved a rooftop kitchen that took Indo-Chinese and Pan-Asian cooking seriously.</p>
+      <p>Every dish leaves an open wok station you can watch from the bar. We import our chilli oil, char siu, and five-spice from Guangzhou, and pair them with vegetables sourced daily from Soweto Market.</p>
+      <p>The dining room seats 120, the rooftop bar seats another 60, and the sunset over Lusaka's northern suburbs is the same every night — which is exactly why people keep coming back for it.</p>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Gallery</div>
+      <h2>The room, the rooftop, the food.</h2>
+    </div>
+    <div class="gallery-grid reveal">
+      <div class="g-item tall"><img src="https://picsum.photos/id/1080/500/800" alt="Rooftop lounge seating"><div class="g-caption">Rooftop Lounge</div></div>
+      <div class="g-item wide"><img src="https://picsum.photos/id/292/900/400" alt="Sunset over the rooftop bar"><div class="g-caption">Golden Hour, Rooftop Bar</div></div>
+      <div class="g-item"><img src="https://picsum.photos/id/163/400/400" alt="Wok fired noodles"><div class="g-caption">Chilli Garlic Noodles</div></div>
+      <div class="g-item"><img src="https://picsum.photos/id/431/400/400" alt="Chef at the wok station"><div class="g-caption">Open Wok Station</div></div>
+      <div class="g-item"><img src="https://picsum.photos/id/312/400/400" alt="Cocktail bar"><div class="g-caption">The Bar</div></div>
+      <div class="g-item wide"><img src="https://picsum.photos/id/1060/900/400" alt="Interior dining room"><div class="g-caption">Main Dining Room</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="menu" class="menu-bg">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Menu &amp; Pricing</div>
+      <h2>Three ways to eat with us.</h2>
+      <p>À la carte is always open, but if you're deciding ahead of time, here's how most tables order.</p>
+    </div>
+    <div class="tiers reveal">
+      <div class="tier">
+        <h3>Street Wok</h3>
+        <div class="price">K180 <span>/ person</span></div>
+        <ul>
+          <li><b>Starter</b> — Chilli garlic momos or spring rolls</li>
+          <li><b>Main</b> — Choice of Hakka noodles or fried rice</li>
+          <li><b>Protein</b> — Chicken or vegetable</li>
+          <li><b>Drink</b> — House iced tea</li>
+        </ul>
+        <a href="#reserve" class="btn btn-ghost">Reserve for This</a>
+      </div>
+      <div class="tier featured">
+        <span class="tier-tag">Most Booked</span>
+        <h3>Rooftop Feast</h3>
+        <div class="price">K420 <span>/ person</span></div>
+        <ul>
+          <li><b>Starter</b> — Sharing platter, 3 items</li>
+          <li><b>Main</b> — Two wok dishes + rice or noodles</li>
+          <li><b>Protein</b> — Prawn, beef, chicken or paneer</li>
+          <li><b>Dessert</b> — Sesame banana or mango sticky rice</li>
+          <li><b>Drink</b> — One rooftop cocktail</li>
+        </ul>
+        <a href="#reserve" class="btn btn-primary">Reserve for This</a>
+      </div>
+      <div class="tier">
+        <h3>Chef's Table</h3>
+        <div class="price">K780 <span>/ person</span></div>
+        <ul>
+          <li><b>7-course</b> tasting menu, chef's choice</li>
+          <li>Seasonal seafood &amp; premium cuts</li>
+          <li>Wine or cocktail pairing included</li>
+          <li>Seating at the open wok counter</li>
+          <li>Min. 2 guests, book 48hrs ahead</li>
+        </ul>
+        <a href="#reserve" class="btn btn-ghost">Reserve for This</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Guest Notes</div>
+      <h2>What people say after the second cocktail.</h2>
+    </div>
+    <div class="testi-grid reveal">
+      <div class="testi">
+        <p>"The chilli garlic noodles alone are worth the drive across town. We've had three team dinners here this year."</p>
+        <div class="testi-who">
+          <div class="testi-avatar">M</div>
+          <div>
+            <div class="testi-name">Mutale Chanda</div>
+            <div class="testi-role">Regular, Kabulonga</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi">
+        <p>"Booked the Chef's Table for our anniversary. Watching the wok station work through seven courses was the whole night."</p>
+        <div class="testi-who">
+          <div class="testi-avatar">C</div>
+          <div>
+            <div class="testi-name">Chomba Mwansa</div>
+            <div class="testi-role">Guest since 2021</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi">
+        <p>"Best rooftop in Lusaka, full stop. We moved our whole office end-of-year party here after one visit."</p>
+        <div class="testi-who">
+          <div class="testi-avatar">N</div>
+          <div>
+            <div class="testi-name">Natasha Phiri</div>
+            <div class="testi-role">Operations Lead, local NGO</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="reserve" class="reserve">
+  <div class="wrap reserve-grid">
+    <div class="reserve-info reveal">
+      <div class="eyebrow">Visit Us</div>
+      <h3>Rooftop Level, Addis Ababa Drive, Rhodes Park, Lusaka</h3>
+      <div class="info-row"><div class="info-label">Hours</div><div class="info-val">Tue–Sun, 4pm – Late<br>Closed Mondays</div></div>
+      <div class="info-row"><div class="info-label">Phone</div><div class="info-val">+260 96 000 0000</div></div>
+      <div class="info-row"><div class="info-label">WhatsApp</div><div class="info-val">+260 96 000 0000</div></div>
+      <div class="info-row"><div class="info-label">Groups</div><div class="info-val">10+ guests, call ahead for the rooftop lounge</div></div>
+    </div>
+    <div class="reveal">
+      <form onsubmit="event.preventDefault(); document.getElementById('formMsg').style.display='block';">
+        <div class="form-row">
+          <div><label>Full Name</label><input type="text" required placeholder="Your name"></div>
+          <div><label>Phone</label><input type="tel" required placeholder="09XX XXX XXX"></div>
+        </div>
+        <div class="form-row">
+          <div><label>Date</label><input type="date" required></div>
+          <div><label>Time</label><input type="time" required></div>
+        </div>
+        <div class="form-row">
+          <div><label>Party Size</label>
+            <select><option>2 guests</option><option>4 guests</option><option>6 guests</option><option>8+ guests</option></select>
+          </div>
+          <div><label>Seating</label>
+            <select><option>Rooftop Bar</option><option>Main Dining Room</option><option>Chef's Table</option></select>
+          </div>
+        </div>
+        <div><label>Notes (optional)</label><textarea rows="3" placeholder="Dietary requirements, occasion, etc."></textarea></div>
+        <button class="btn btn-primary submit-btn" type="submit">Confirm Reservation</button>
+        <div class="form-note" id="formMsg" style="display:none;color:var(--ember-soft);">Demo form. In your live site, this sends straight to your phone or inbox.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <div class="logo" style="margin-bottom:14px;">Lantern <span>&</span> Wok</div>
+        <p style="color:var(--muted);max-width:260px;font-size:0.9rem;">Rooftop Pan-Asian kitchen and bar, Rhodes Park, Lusaka.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <a href="#menu">Menu &amp; Pricing</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#about">Our Story</a>
+        </div>
+        <div class="footer-col">
+          <h4>Visit</h4>
+          <a href="#reserve">Reserve a Table</a>
+          <a href="#reserve">Groups &amp; Events</a>
+          <a href="#">Directions</a>
+        </div>
+      </div>
+    </div>
+    <div class="promo">
+      <div>© 2026 Lantern &amp; Wok. Demo site, sample content for presentation purposes.</div>
+      <a class="promo-build" href="https://obito324hx.github.io/Portfolio/" target="_blank" rel="noopener">
+        Site design &amp; build by <b style="color:var(--ember-soft);margin-left:4px;">Cletus Bwalya</b>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  reveals.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
