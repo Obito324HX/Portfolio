@@ -160,9 +160,34 @@
       padding: 8rem 4rem 5rem;
       max-width: 1180px;
       margin: 0 auto;
+      position: relative;
+    }
+
+    #hero-3d-mount {
+      position: absolute;
+      inset: -4rem -6rem;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.95;
+    }
+
+    #hero-3d-hint {
+      position: absolute;
+      z-index: 1;
+      right: 2rem;
+      bottom: 1rem;
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.4s;
     }
 
     .hero-grid {
+      position: relative;
+      z-index: 1;
       display: grid;
       grid-template-columns: 1.2fr 0.8fr;
       gap: 4rem;
@@ -872,6 +897,7 @@
       .services-grid { grid-template-columns: 1fr; }
     }
   </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
 </head>
 <body>
 
@@ -901,6 +927,8 @@
 
   <!-- HERO -->
   <div class="hero">
+    <div id="hero-3d-mount"></div>
+    <div id="hero-3d-hint">⬡ drag the stack</div>
     <div class="hero-grid">
       <div>
         <div class="avail-badge">
@@ -937,12 +965,7 @@
         </div>
       </div>
 
-      <div class="hero-photo-wrap">
-        <div class="hero-photo-ring">
-          <img src="img/cletus-avatar.jpg" alt="Cletus Bwalya" class="hero-photo"/>
-          <div class="hero-photo-badge">Lusaka, Zambia 🇿🇲</div>
-        </div>
-      </div>
+      <div></div>
     </div>
   </div>
 
@@ -1355,6 +1378,174 @@
         </div>
       </div>
 
+      <!-- Lantern & Wok -->
+      <div class="project-card featured">
+        <div>
+          <div class="proj-tag">Featured Project · Demo</div>
+          <h3 class="proj-title">Lantern & Wok</h3>
+          <p class="proj-desc">
+            A dark, moody rooftop restaurant concept built for lounge-style Pan-Asian dining —
+            full digital menu, photo gallery, and reservation flow, built mobile-first instead
+            of cutting corners the way most template demos do.
+          </p>
+          <div class="proj-features">
+            <span class="proj-feature">Full digital menu across small plates, mains, and the bar list</span>
+            <span class="proj-feature">Reservation form built for real bookings, not just a contact page</span>
+            <span class="proj-feature">Photo gallery with a full-screen lightbox for browsing dishes</span>
+            <span class="proj-feature">Cursor-reactive "lantern glow" hero — a signature interaction tied to the name</span>
+            <span class="proj-feature">Fully responsive with a working mobile navigation menu</span>
+          </div>
+          <div class="proj-tech">
+            <span class="proj-tech-tag">HTML</span>
+            <span class="proj-tech-tag">CSS</span>
+            <span class="proj-tech-tag">JavaScript</span>
+            <span class="proj-tech-tag">GitHub Pages</span>
+          </div>
+          <a href="https://obito324hx.github.io/lantern-wok/" target="_blank" class="proj-link">View Live Demo →</a>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:1rem;">
+          <img src="covers/lantern-wok-cover.png" alt="Lantern & Wok website preview" style="width:100%;border-radius:12px;display:block;border:1px solid var(--border);"/>
+
+          <div class="proj-right" style="flex-direction:row;flex-wrap:wrap;gap:0.75rem;">
+            <div class="proj-stat" style="flex:1;">
+              <div class="proj-stat-val">Live</div>
+              <div class="proj-stat-label">Status</div>
+            </div>
+            <div class="proj-stat" style="flex:1;">
+              <div class="proj-stat-val">Demo</div>
+              <div class="proj-stat-label">For Restaurants</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- The Tide House -->
+      <div class="project-card featured">
+        <div>
+          <div class="proj-tag">Featured Project · Demo</div>
+          <h3 class="proj-title">The Tide House</h3>
+          <p class="proj-desc">
+            A bright, daytime coastal Mediterranean restaurant concept — built for international
+            outreach with USD pricing and a design language completely distinct from Lantern &amp;
+            Wok, showing range across moods for the same kind of business.
+          </p>
+          <div class="proj-features">
+            <span class="proj-feature">Full à la carte menu plus three set-menu tiers, priced in USD</span>
+            <span class="proj-feature">Horizontal scroll-snap photo gallery with a full-screen lightbox</span>
+            <span class="proj-feature">Reservation form with date, time, party size, and seating preference</span>
+            <span class="proj-feature">Ambient "tide" wave dividers and a sunlight-on-water hero animation</span>
+            <span class="proj-feature">Fully responsive with a working mobile navigation menu</span>
+          </div>
+          <div class="proj-tech">
+            <span class="proj-tech-tag">HTML</span>
+            <span class="proj-tech-tag">CSS</span>
+            <span class="proj-tech-tag">JavaScript</span>
+            <span class="proj-tech-tag">GitHub Pages</span>
+          </div>
+          <a href="https://obito324hx.github.io/the-tide-house/" target="_blank" class="proj-link">View Live Demo →</a>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:1rem;">
+          <img src="covers/tide-house-cover.png" alt="The Tide House website preview" style="width:100%;border-radius:12px;display:block;border:1px solid var(--border);"/>
+
+          <div class="proj-right" style="flex-direction:row;flex-wrap:wrap;gap:0.75rem;">
+            <div class="proj-stat" style="flex:1;">
+              <div class="proj-stat-val">Live</div>
+              <div class="proj-stat-label">Status</div>
+            </div>
+            <div class="proj-stat" style="flex:1;">
+              <div class="proj-stat-val">Demo</div>
+              <div class="proj-stat-label">International</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lantern & Wok -->
+      <div class="project-card featured">
+        <div>
+          <div class="proj-tag">Featured Project · Demo</div>
+          <h3 class="proj-title">Lantern & Wok</h3>
+          <p class="proj-desc">
+            A rooftop Pan-Asian restaurant concept built around a moody, obsidian-and-brass
+            aesthetic — a lantern-glow hero interaction, a full digital menu, and a reservation
+            flow, built to show restaurants exactly what a premium web presence looks like.
+          </p>
+          <div class="proj-features">
+            <span class="proj-feature">Cursor-reactive lantern-glow hero effect with a gentle flicker, tied to the restaurant's name</span>
+            <span class="proj-feature">Full digital menu, photo gallery with lightbox, and reservation form</span>
+            <span class="proj-feature">Working mobile navigation menu with a full-screen drawer</span>
+            <span class="proj-feature">Persistent mobile reserve button for on-the-go bookings</span>
+            <span class="proj-feature">Fully responsive with visible keyboard focus states throughout</span>
+          </div>
+          <div class="proj-tech">
+            <span class="proj-tech-tag">HTML</span>
+            <span class="proj-tech-tag">CSS</span>
+            <span class="proj-tech-tag">JavaScript</span>
+            <span class="proj-tech-tag">GitHub Pages</span>
+          </div>
+          <a href="https://obito324hx.github.io/lantern-wok/" target="_blank" class="proj-link">View Live Demo →</a>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:1rem;">
+          <img src="covers/lantern-wok-cover.png" alt="Lantern & Wok website preview" style="width:100%;border-radius:12px;display:block;border:1px solid var(--border);"/>
+
+          <div class="proj-right" style="flex-direction:row;flex-wrap:wrap;gap:0.75rem;">
+            <div class="proj-stat" style="flex:1;">
+              <div class="proj-stat-val">Live</div>
+              <div class="proj-stat-label">Status</div>
+            </div>
+            <div class="proj-stat" style="flex:1;">
+              <div class="proj-stat-val">Demo</div>
+              <div class="proj-stat-label">For Restaurants</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- The Tide House -->
+      <div class="project-card featured">
+        <div>
+          <div class="proj-tag">Featured Project · Demo</div>
+          <h3 class="proj-title">The Tide House</h3>
+          <p class="proj-desc">
+            A bright, daytime coastal Mediterranean restaurant concept — a deliberate contrast
+            to Lantern & Wok's night-time rooftop mood, with USD pricing and neutral branding
+            so it's ready to pitch to restaurants anywhere in the world.
+          </p>
+          <div class="proj-features">
+            <span class="proj-feature">Ambient wave-divider and sun-glint hero animation as a signature coastal motif</span>
+            <span class="proj-feature">Horizontal scroll-snap photo gallery with a full-screen lightbox</span>
+            <span class="proj-feature">À la carte menu plus three tiered set menus, USD pricing throughout</span>
+            <span class="proj-feature">Working mobile navigation menu and a persistent mobile reserve button</span>
+            <span class="proj-feature">Fully responsive with visible keyboard focus states throughout</span>
+          </div>
+          <div class="proj-tech">
+            <span class="proj-tech-tag">HTML</span>
+            <span class="proj-tech-tag">CSS</span>
+            <span class="proj-tech-tag">JavaScript</span>
+            <span class="proj-tech-tag">GitHub Pages</span>
+          </div>
+          <a href="https://obito324hx.github.io/the-tide-house/" target="_blank" class="proj-link">View Live Demo →</a>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:1rem;">
+          <img src="covers/the-tide-house-cover.png" alt="The Tide House website preview" style="width:100%;border-radius:12px;display:block;border:1px solid var(--border);"/>
+
+          <div class="proj-right" style="flex-direction:row;flex-wrap:wrap;gap:0.75rem;">
+            <div class="proj-stat" style="flex:1;">
+              <div class="proj-stat-val">Live</div>
+              <div class="proj-stat-label">Status</div>
+            </div>
+            <div class="proj-stat" style="flex:1;">
+              <div class="proj-stat-val">Demo</div>
+              <div class="proj-stat-label">International</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
 
       <div class="project-card" style="grid-template-columns:1fr;">
         <div>
@@ -1659,5 +1850,183 @@
     });
   </script>
 
+  <script>
+    window.addEventListener('load', () => {
+      const mount = document.getElementById('hero-3d-mount');
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!mount || typeof THREE === 'undefined' || window.innerWidth <= 900) return;
+
+      const GOLD = 0xc9973e;
+      const PURPLE = 0x7c5cfc;
+      const GREEN = 0x3bb383;
+      const INK = 0x1c1b19;
+
+      function glowTexture(hex) {
+        const size = 128;
+        const canvas = document.createElement('canvas');
+        canvas.width = size; canvas.height = size;
+        const ctx = canvas.getContext('2d');
+        const grad = ctx.createRadialGradient(size/2, size/2, 0, size/2, size/2, size/2);
+        grad.addColorStop(0, 'rgba(255,255,255,1)');
+        grad.addColorStop(0.4, hex);
+        grad.addColorStop(1, 'rgba(255,255,255,0)');
+        ctx.fillStyle = grad;
+        ctx.fillRect(0, 0, size, size);
+        return new THREE.CanvasTexture(canvas);
+      }
+
+      function labelSprite(text, colorHex) {
+        const canvas = document.createElement('canvas');
+        canvas.width = 512; canvas.height = 96;
+        const ctx = canvas.getContext('2d');
+        ctx.font = '500 34px Inter, sans-serif';
+        ctx.fillStyle = colorHex;
+        ctx.textBaseline = 'middle';
+        ctx.fillText(text, 0, 48);
+        const tex = new THREE.CanvasTexture(canvas);
+        tex.minFilter = THREE.LinearFilter;
+        const mat = new THREE.SpriteMaterial({ map: tex, transparent: true, depthWrite: false });
+        const sprite = new THREE.Sprite(mat);
+        sprite.scale.set(2.6, 0.49, 1);
+        return sprite;
+      }
+
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(48, mount.clientWidth / mount.clientHeight, 0.1, 100);
+      camera.position.set(0, 0.6, 9.5);
+
+      const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+      renderer.setSize(mount.clientWidth, mount.clientHeight);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      mount.appendChild(renderer.domElement);
+
+      const group = new THREE.Group();
+      group.position.x = 2.6;
+      group.rotation.x = -0.32;
+      group.rotation.y = 0.5;
+      scene.add(group);
+
+      const LAYER_W = 4.4, LAYER_D = 1.7, LAYER_T = 0.22;
+      const layers = [
+        { name: 'Frontend  ·  React / Next.js', color: GOLD, y: 2.15 },
+        { name: 'API  ·  Express / REST', color: PURPLE, y: 0 },
+        { name: 'Database  ·  PostgreSQL', color: GREEN, y: -2.15 },
+      ];
+
+      const glowTexCache = {};
+      function getGlow(hex) {
+        if (!glowTexCache[hex]) glowTexCache[hex] = glowTexture('#' + hex.toString(16).padStart(6,'0'));
+        return glowTexCache[hex];
+      }
+
+      const layerMeshes = [];
+      layers.forEach((layer, i) => {
+        const geo = new THREE.BoxGeometry(LAYER_W, LAYER_T, LAYER_D);
+        const mat = new THREE.MeshBasicMaterial({ color: layer.color, transparent: true, opacity: 0.16 });
+        const box = new THREE.Mesh(geo, mat);
+        box.position.y = layer.y;
+        group.add(box);
+
+        const edges = new THREE.EdgesGeometry(geo);
+        const edgeMat = new THREE.LineBasicMaterial({ color: layer.color, transparent: true, opacity: 0.6 });
+        const wire = new THREE.LineSegments(edges, edgeMat);
+        wire.position.y = layer.y;
+        group.add(wire);
+
+        const label = labelSprite(layer.name, '#' + layer.color.toString(16).padStart(6,'0'));
+        label.position.set(0, layer.y + 0.42, LAYER_D / 2 + 0.1);
+        group.add(label);
+
+        layerMeshes.push({ box, wire, label, baseY: layer.y, phase: i * 2.1 });
+      });
+
+      const connectorPairs = [[0,1],[1,2]];
+      const pulses = [];
+      connectorPairs.forEach(([a, b]) => {
+        const from = layers[a], to = layers[b];
+        const lineGeo = new THREE.BufferGeometry().setFromPoints([
+          new THREE.Vector3(0, from.y - LAYER_T/2, 0),
+          new THREE.Vector3(0, to.y + LAYER_T/2, 0),
+        ]);
+        const lineMat = new THREE.LineBasicMaterial({ color: INK, transparent: true, opacity: 0.18 });
+        group.add(new THREE.Line(lineGeo, lineMat));
+
+        const pulseGeo = new THREE.BufferGeometry();
+        pulseGeo.setAttribute('position', new THREE.Float32BufferAttribute([0,0,0], 3));
+        const pulseMat = new THREE.PointsMaterial({ map: getGlow(from.color), size: 0.32, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, color: 0xffffff });
+        const point = new THREE.Points(pulseGeo, pulseMat);
+        group.add(point);
+        pulses.push({ point, yFrom: from.y - LAYER_T/2, yTo: to.y + LAYER_T/2, offset: Math.random() });
+      });
+
+      let velocityY = 0.0022;
+      let velocityX = 0;
+      let isDragging = false;
+      let lastX = 0, lastY = 0;
+
+      function pointerDown(x, y) { isDragging = true; lastX = x; lastY = y; }
+      function pointerMove(x, y) {
+        if (!isDragging) return;
+        const dx = x - lastX, dy = y - lastY;
+        velocityY = dx * 0.004;
+        velocityX = dy * 0.004;
+        group.rotation.y += velocityY;
+        group.rotation.x += velocityX;
+        lastX = x; lastY = y;
+      }
+      function pointerUp() { isDragging = false; }
+
+      renderer.domElement.style.pointerEvents = 'auto';
+      renderer.domElement.style.cursor = 'grab';
+      renderer.domElement.addEventListener('mousedown', (e) => { pointerDown(e.clientX, e.clientY); renderer.domElement.style.cursor = 'grabbing'; });
+      window.addEventListener('mousemove', (e) => pointerMove(e.clientX, e.clientY));
+      window.addEventListener('mouseup', () => { pointerUp(); renderer.domElement.style.cursor = 'grab'; });
+      renderer.domElement.addEventListener('touchstart', (e) => { const t = e.touches[0]; pointerDown(t.clientX, t.clientY); }, { passive: true });
+      renderer.domElement.addEventListener('touchmove', (e) => { const t = e.touches[0]; pointerMove(t.clientX, t.clientY); }, { passive: true });
+      renderer.domElement.addEventListener('touchend', pointerUp);
+
+      const clock = new THREE.Clock();
+      const hint = document.getElementById('hero-3d-hint');
+      let hasDragged = false;
+      setTimeout(() => { if (hint && !hasDragged) hint.style.opacity = '1'; }, 1200);
+      renderer.domElement.addEventListener('mousedown', () => { hasDragged = true; if (hint) hint.style.opacity = '0'; });
+      renderer.domElement.addEventListener('touchstart', () => { hasDragged = true; if (hint) hint.style.opacity = '0'; }, { passive: true });
+
+      function animate() {
+        const t = clock.getElapsedTime();
+
+        if (!prefersReducedMotion) {
+          if (!isDragging) {
+            velocityY += (0.0022 - velocityY) * 0.02;
+            velocityX += (0 - velocityX) * 0.05;
+            group.rotation.y += velocityY;
+            group.rotation.x += velocityX;
+          }
+          layerMeshes.forEach(l => {
+            const bob = Math.sin(t * 0.6 + l.phase) * 0.08;
+            l.box.position.y = l.baseY + bob;
+            l.wire.position.y = l.baseY + bob;
+            l.label.position.y = l.baseY + bob + 0.42;
+          });
+          pulses.forEach(p => {
+            const progress = (t * 0.28 + p.offset) % 1;
+            const y = p.yFrom + (p.yTo - p.yFrom) * progress;
+            p.point.geometry.attributes.position.setXYZ(0, 0, y, 0);
+            p.point.geometry.attributes.position.needsUpdate = true;
+          });
+        }
+
+        renderer.render(scene, camera);
+        requestAnimationFrame(animate);
+      }
+      animate();
+
+      window.addEventListener('resize', () => {
+        camera.aspect = mount.clientWidth / mount.clientHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(mount.clientWidth, mount.clientHeight);
+      });
+    });
+  </script>
 </body>
 </html>
