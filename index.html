@@ -1160,6 +1160,14 @@
             <span class="proj-feature">Separate business login to manage bookings per tenant</span>
             <span class="proj-feature">Zed-Forge live as the first demo tenant on the platform</span>
           </div>
+          <div style="background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:1.25rem 1.5rem;margin-bottom:1.5rem;">
+            <div style="font-family:var(--mono);font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);margin-bottom:0.75rem;">How I Approached It</div>
+            <div style="display:flex;flex-direction:column;gap:0.6rem;font-size:0.85rem;line-height:1.7;">
+              <div><strong style="color:var(--ink);">Problem:</strong> <span style="color:var(--ink-soft);">Booking over phone or WhatsApp back-and-forth doesn't scale — a business owner juggling messages risks double-booking the same slot, and building a dedicated booking system per client from scratch isn't sustainable to offer affordably.</span></div>
+              <div><strong style="color:var(--ink);">Decision:</strong> <span style="color:var(--ink-soft);">Built one multi-tenant platform instead of one-off booking pages — each business gets an isolated, branded booking page and login, sharing the same underlying slot-locking logic underneath.</span></div>
+              <div><strong style="color:var(--ink);">Result:</strong> <span style="color:var(--ink-soft);">A new business — like Zed-Forge, live as the first tenant — can be onboarded as a config change, not a rebuild, without risking the double-booking problem the platform exists to solve.</span></div>
+            </div>
+          </div>
           <div class="proj-tech">
             <span class="proj-tech-tag">Python</span>
             <span class="proj-tech-tag">JavaScript</span>
@@ -1203,6 +1211,14 @@
             <span class="proj-feature">WhatsApp & call integration for buyers</span>
             <span class="proj-feature">Full listing management dashboard</span>
             <span class="proj-feature">Mobile responsive — works on any phone</span>
+          </div>
+          <div style="background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:1.25rem 1.5rem;margin-bottom:1.5rem;">
+            <div style="font-family:var(--mono);font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);margin-bottom:0.75rem;">How I Approached It</div>
+            <div style="display:flex;flex-direction:column;gap:0.6rem;font-size:0.85rem;line-height:1.7;">
+              <div><strong style="color:var(--ink);">Problem:</strong> <span style="color:var(--ink-soft);">The admin panel was originally protected by a single hardcoded static key shared across the app — not a real access-control model, and a real risk if it ever leaked.</span></div>
+              <div><strong style="color:var(--ink);">Decision:</strong> <span style="color:var(--ink-soft);">Replaced it with proper JWT-based server-side authentication, added a dedicated admin flag to the user model, and wrote a migration to roll it out without breaking existing accounts.</span></div>
+              <div><strong style="color:var(--ink);">Result:</strong> <span style="color:var(--ink-soft);">Admin access is now tied to an authenticated user role instead of a shared secret — a real security gap closed before the platform saw wider use across campus.</span></div>
+            </div>
           </div>
           <div class="proj-tech">
             <span class="proj-tech-tag">Flask</span>
