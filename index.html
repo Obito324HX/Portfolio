@@ -32,6 +32,7 @@
       --green: #1E8E5A;
       --green-dim: rgba(30,142,90,0.09);
       --purple: #7C5CFC;
+      --nav-bg: rgba(250,249,246,0.88);
       --serif: 'Fraunces', Georgia, serif;
       --sans: 'Inter', sans-serif;
       --mono: 'JetBrains Mono', monospace;
@@ -53,6 +54,7 @@
       --green: #34C58A;
       --green-dim: rgba(52,197,138,0.13);
       --purple: #9B8CF0;
+      --nav-bg: rgba(10,8,18,0.85);
     }
 
     html { transition: background-color 0.3s ease; }
@@ -96,7 +98,7 @@
       align-items: center;
       justify-content: space-between;
       padding: 1.1rem 4rem;
-      background: rgba(250,249,246,0.88);
+      background: var(--nav-bg);
       backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--border);
     }
