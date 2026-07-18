@@ -37,6 +37,45 @@
       --mono: 'JetBrains Mono', monospace;
     }
 
+    [data-theme="dark"] {
+      --bg: #0A0812;
+      --surface: #14101F;
+      --border: #241E38;
+      --border-strong: #342B52;
+      --ink: #E8E4F3;
+      --ink-soft: #C4BEDD;
+      --muted: #6B6485;
+      --muted-light: #8F86C9;
+      --gold: #C9A468;
+      --gold-light: #DCC08A;
+      --gold-glow: rgba(201,164,104,0.14);
+      --gold-glow-soft: rgba(201,164,104,0.07);
+      --green: #34C58A;
+      --green-dim: rgba(52,197,138,0.13);
+      --purple: #9B8CF0;
+    }
+
+    html { transition: background-color 0.3s ease; }
+    body, .service-card, .project-card, .testimonial-card, .contact-method, .form-panel, nav, .mobile-menu {
+      transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+    }
+
+    .theme-toggle {
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      width: 38px;
+      height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1rem;
+      margin-left: 1rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .theme-toggle:hover { border-color: var(--gold); transform: scale(1.05); }
+
     html { scroll-behavior: smooth; }
 
     body {
@@ -876,6 +915,15 @@
     }
   </style>
   <meta property="og:image" content="https://obito324hx.github.io/Portfolio/img/cletus-avatar.jpg"/>
+  <script>
+    (function() {
+      var stored = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (stored === 'dark' || (!stored && prefersDark)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
 </head>
 <body>
 
@@ -891,6 +939,7 @@
       <li><a href="#services">Services</a></li>
       <li><a href="#contact" class="nav-cta">Let's Talk</a></li>
     </ul>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">🌙</button>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
       <span></span><span></span><span></span>
     </button>
@@ -1783,5 +1832,28 @@
     });
   </script>
 
+  <script>
+    // ── Dark mode toggle ──
+    (function() {
+      var toggle = document.getElementById('themeToggle');
+      if (!toggle) return;
+      function applyIcon() {
+        var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        toggle.textContent = isDark ? '☀️' : '🌙';
+      }
+      applyIcon();
+      toggle.addEventListener('click', function() {
+        var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        if (isDark) {
+          document.documentElement.removeAttribute('data-theme');
+          localStorage.setItem('theme', 'light');
+        } else {
+          document.documentElement.setAttribute('data-theme', 'dark');
+          localStorage.setItem('theme', 'dark');
+        }
+        applyIcon();
+      });
+    })();
+  </script>
 </body>
 </html>
